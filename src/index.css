@@ -102,11 +102,17 @@
   }
 
   .site-backdrop-video {
+    position: relative;
+    z-index: 1;
     transform: translateZ(0);
   }
 
   .site-backdrop-video.is-hidden {
     display: none;
+  }
+
+  .site-backdrop-image {
+    opacity: 0.42;
   }
 
   .backdrop-grid {

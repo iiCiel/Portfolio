@@ -21,6 +21,8 @@ import resumeUrl from "../assets/Soliman_Alktaifan_Resume.pdf";
 
 const videoUrl =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4";
+const backdropImageUrl =
+  "https://soft-zoom-63098134.figma.site/_assets/v11/0b4a435b2df2747593c43d7a1c9b4578f7d8d90c.png";
 
 const navItems = [
   { label: "Cases", href: "#work" },
@@ -492,6 +494,11 @@ function SiteBackdrop({
 }) {
   return (
     <div className="site-backdrop fixed inset-0 z-0 overflow-hidden bg-background" aria-hidden="true">
+      <img
+        className="site-backdrop-image absolute inset-0 h-full w-full object-cover"
+        src={backdropImageUrl}
+        alt=""
+      />
       <video
         ref={videoRef}
         className={`site-backdrop-video h-full w-full object-cover ${
