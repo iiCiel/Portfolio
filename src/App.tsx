@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import {
   Activity,
   ArrowUpRight,
@@ -158,12 +159,38 @@ const credentials = [
 ];
 
 export default function App() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const heroRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const hero = heroRef.current;
+
+    if (!video || !hero || !("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.08 },
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <SiteBackdrop />
+      <SiteBackdrop videoRef={videoRef} />
       <Navigation />
 
-      <section id="top" className="relative z-10 min-h-screen overflow-hidden">
+      <section ref={heroRef} id="top" className="relative z-10 min-h-screen overflow-hidden">
         <div className="mx-auto grid min-h-screen max-w-7xl items-end gap-10 px-5 pb-8 pt-28 sm:px-8 lg:grid-cols-[1fr_22rem] lg:pb-12">
           <div className="max-w-6xl">
             <p className="animate-fade-rise liquid-glass mb-8 inline-flex rounded-full px-5 py-2 text-sm text-muted-foreground">
@@ -219,7 +246,7 @@ export default function App() {
           </aside>
         </div>
 
-        <div className="relative z-10 border-y border-border/70 bg-black/20 py-3 backdrop-blur-md">
+        <div className="relative z-10 border-y border-border/70 bg-black/25 py-3">
           <div className="marquee-track text-sm uppercase tracking-[0.28em] text-muted-foreground">
             <span>Wireshark</span>
             <span>Splunk</span>
@@ -248,7 +275,7 @@ export default function App() {
             return (
               <article
                 key={project.title}
-                className={`case-file liquid-glass rounded-[2rem] p-5 sm:p-6 ${
+                className={`case-file glass-panel rounded-[2rem] p-5 sm:p-6 ${
                   index === 0 || index === 2 ? "lg:col-span-2" : ""
                 }`}
               >
@@ -306,7 +333,7 @@ export default function App() {
                 <div className="timeline-icon">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <div className="liquid-glass rounded-[1.75rem] p-5 sm:p-7">
+                <div className="glass-panel rounded-[1.75rem] p-5 sm:p-7">
                   <div className="grid gap-4 md:grid-cols-[0.7fr_1fr]">
                     <div>
                       <p className="text-sm text-muted-foreground">{item.date}</p>
@@ -343,7 +370,7 @@ export default function App() {
           {skillGroups.map((group) => {
             const Icon = group.icon;
             return (
-              <article key={group.title} className="liquid-glass skill-panel rounded-[2rem] p-6">
+              <article key={group.title} className="glass-panel skill-panel rounded-[2rem] p-6">
                 <div className="flex items-center justify-between">
                   <h3
                     className="text-4xl font-normal text-foreground"
@@ -453,15 +480,21 @@ function Navigation() {
   );
 }
 
-function SiteBackdrop() {
+function SiteBackdrop({
+  videoRef,
+}: {
+  videoRef: React.RefObject<HTMLVideoElement | null>;
+}) {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden bg-background" aria-hidden="true">
       <video
+        ref={videoRef}
         className="h-full w-full object-cover"
         autoPlay
         loop
         muted
         playsInline
+        preload="metadata"
       >
         <source src={videoUrl} type="video/mp4" />
       </video>
