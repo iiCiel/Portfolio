@@ -1,48 +1,107 @@
-const cursorLight = document.querySelector(".cursor-light");
-const finePointer = window.matchMedia("(pointer: fine)");
+const hero = document.querySelector(".hero");
+const sceneVideos = Array.from(document.querySelectorAll(".scene-video"));
+const sceneButtons = Array.from(document.querySelectorAll(".scene-switcher button"));
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
+const contactForm = document.querySelector("#contact-form");
+const emailInput = document.querySelector("#email-input");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-if (cursorLight && finePointer.matches && !reduceMotion.matches) {
-  let pendingX = window.innerWidth / 2;
-  let pendingY = window.innerHeight * 0.2;
-  let frameQueued = false;
+let activeScene = 0;
+let sceneLocked = false;
+let lockTimer = 0;
 
-  const applyPosition = () => {
-    frameQueued = false;
-    // scoped to the element itself, not documentElement, so this never
-    // triggers a style recalc outside the one node that reads it
-    cursorLight.style.setProperty("--mx", `${pendingX}px`);
-    cursorLight.style.setProperty("--my", `${pendingY}px`);
-  };
+function setScene(nextScene) {
+  if (sceneLocked || nextScene === activeScene || !sceneVideos[nextScene]) {
+    return;
+  }
 
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      pendingX = event.clientX;
-      pendingY = event.clientY;
-      if (!frameQueued) {
-        frameQueued = true;
-        requestAnimationFrame(applyPosition);
-      }
-    },
-    { passive: true }
-  );
-}
+  const previousScene = activeScene;
+  const nextVideo = sceneVideos[nextScene];
+  const previousVideo = sceneVideos[previousScene];
 
-const reveals = document.querySelectorAll(".reveal");
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
+  sceneLocked = true;
+  activeScene = nextScene;
+
+  nextVideo.play().catch(() => {});
+  nextVideo.classList.add("is-active");
+  previousVideo.classList.remove("is-active");
+
+  sceneButtons.forEach((button, index) => {
+    const selected = index === nextScene;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-selected", String(selected));
+  });
+
+  hero.classList.toggle("has-dark-content", nextScene === 2);
+
+  window.clearTimeout(lockTimer);
+  lockTimer = window.setTimeout(() => {
+    sceneVideos.forEach((video, index) => {
+      if (index !== activeScene) {
+        video.pause();
       }
     });
-  },
-  { threshold: 0.16 }
-);
+    sceneLocked = false;
+  }, 1000);
+}
 
-reveals.forEach((element) => revealObserver.observe(element));
+sceneButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setScene(Number(button.dataset.scene));
+  });
+});
+
+sceneVideos.forEach((video, index) => {
+  if (index !== activeScene) {
+    video.pause();
+  }
+});
+
+function setMenu(open) {
+  menuToggle.classList.toggle("is-open", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  mobileMenu.classList.toggle("is-open", open);
+  mobileMenu.setAttribute("aria-hidden", String(!open));
+  document.body.classList.toggle("menu-open", open);
+}
+
+menuToggle.addEventListener("click", () => {
+  setMenu(!menuToggle.classList.contains("is-open"));
+});
+
+mobileMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => setMenu(false));
+});
+
+contactForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const email = emailInput.value.trim();
+  const subject = encodeURIComponent("Portfolio inquiry");
+  const body = encodeURIComponent(email ? `Hi Soliman,\n\nYou can reply to me at ${email}.\n\n` : "Hi Soliman,\n\n");
+  window.location.href = `mailto:solimansultan59@gmail.com?subject=${subject}&body=${body}`;
+});
+
+const reveals = document.querySelectorAll(".reveal");
+
+if (reduceMotion.matches) {
+  reveals.forEach((element) => element.classList.add("is-visible"));
+} else {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.14 }
+  );
+
+  reveals.forEach((element) => revealObserver.observe(element));
+}
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", () => {
