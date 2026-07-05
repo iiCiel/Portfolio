@@ -94,6 +94,17 @@ img {
   mix-blend-mode: screen;
 }
 
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .site-header {
   position: fixed;
   left: 50%;
@@ -430,6 +441,27 @@ h1 {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: clamp(1.6rem, 3.8vw, 3.6rem);
   letter-spacing: 0;
+  animation: toolPulse 6s ease-in-out infinite;
+}
+
+.tool-icons span:nth-child(2n) {
+  animation-delay: 800ms;
+}
+
+.tool-icons span:nth-child(3n) {
+  animation-delay: 1400ms;
+}
+
+@keyframes toolPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    border-color: var(--line);
+  }
+  50% {
+    transform: translateY(-0.3rem);
+    border-color: rgba(154, 255, 106, 0.45);
+  }
 }
 
 .tool-icons span:nth-child(1) {
@@ -451,6 +483,8 @@ h1 {
 }
 
 .preview-tile {
+  position: relative;
+  overflow: hidden;
   min-height: 8rem;
   display: grid;
   align-content: end;
@@ -460,6 +494,30 @@ h1 {
   background: #e9eee9;
   color: #080908;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.preview-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0 35%, rgba(255, 255, 255, 0.42) 48%, transparent 62% 100%);
+  transform: translateX(-120%);
+  animation: tileSweep 5.5s ease-in-out infinite;
+}
+
+.preview-tile:nth-child(2n)::after {
+  animation-delay: 900ms;
+}
+
+@keyframes tileSweep {
+  0%,
+  42% {
+    transform: translateX(-120%);
+  }
+  70%,
+  100% {
+    transform: translateX(120%);
+  }
 }
 
 .preview-tile.wide {
@@ -483,6 +541,164 @@ h1 {
   display: grid;
   align-content: center;
   overflow: hidden;
+}
+
+.ai-workflow-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-workflow-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--green), transparent);
+  animation: signalRun 3.8s ease-in-out infinite;
+}
+
+@keyframes signalRun {
+  0% {
+    transform: translateX(-45%);
+    opacity: 0;
+  }
+  35%,
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(45%);
+    opacity: 0;
+  }
+}
+
+.ai-workflow-grid {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.agent-console {
+  min-height: 23rem;
+  border: 1px solid var(--line);
+  background: #050705;
+  box-shadow: var(--shadow);
+}
+
+.console-top {
+  min-height: 3.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.console-top span {
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--pink);
+}
+
+.console-top span:nth-child(2) {
+  background: var(--amber);
+}
+
+.console-top span:nth-child(3) {
+  background: var(--green);
+}
+
+.console-top strong {
+  margin-left: auto;
+}
+
+.console-lines {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  color: #dfe9e1;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+.console-lines p {
+  margin: 0;
+  min-height: 1.8rem;
+}
+
+.console-lines span {
+  color: var(--green);
+  font-weight: 900;
+}
+
+.ai-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ai-skill-card {
+  min-height: 11rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(101, 216, 255, 0.08), transparent 54%),
+    rgba(255, 255, 255, 0.035);
+}
+
+.ai-skill-card span {
+  color: var(--green);
+  font-weight: 950;
+  font-size: 0.78rem;
+}
+
+.ai-skill-card h3 {
+  margin: 1.7rem 0 0.8rem;
+  text-transform: uppercase;
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  line-height: 1;
+}
+
+.ai-skill-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.motion-prompt-row {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.motion-prompt-row span {
+  flex: 0 0 auto;
+  min-height: 2.65rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.9rem;
+  border: 1px solid var(--line);
+  color: #080908;
+  background: var(--text);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  animation: promptDrift 9s linear infinite;
+}
+
+@keyframes promptDrift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-4rem);
+  }
 }
 
 .section-heading {
@@ -917,6 +1133,7 @@ h2 {
   }
 
   .project-row,
+  .ai-workflow-grid,
   .contact-band {
     grid-template-columns: 1fr;
   }
@@ -971,7 +1188,8 @@ h2 {
   }
 
   .tool-icons,
-  .preview-wall {
+  .preview-wall,
+  .ai-skill-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1000,5 +1218,6 @@ h2 {
   *::after {
     scroll-behavior: auto !important;
     transition: none !important;
+    animation: none !important;
   }
 }
