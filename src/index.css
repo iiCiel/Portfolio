@@ -107,14 +107,6 @@
     transform: translateZ(0);
   }
 
-  .site-backdrop-video.is-hidden {
-    display: none;
-  }
-
-  .site-backdrop-image {
-    opacity: 0.42;
-  }
-
   .backdrop-grid {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),

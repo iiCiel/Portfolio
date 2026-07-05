@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import {
   Activity,
   ArrowUpRight,
@@ -161,7 +161,6 @@ const credentials = [
 export default function App() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const heroRef = useRef<HTMLElement | null>(null);
-  const [videoActive, setVideoActive] = useState(true);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -174,11 +173,9 @@ export default function App() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVideoActive(true);
           video.play().catch(() => {});
         } else {
           video.pause();
-          setVideoActive(false);
         }
       },
       { threshold: 0.08 },
@@ -190,7 +187,7 @@ export default function App() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <SiteBackdrop videoRef={videoRef} videoActive={videoActive} />
+      <SiteBackdrop videoRef={videoRef} />
       <Navigation />
 
       <section ref={heroRef} id="top" className="relative z-10 min-h-screen overflow-hidden">
@@ -483,25 +480,12 @@ function Navigation() {
   );
 }
 
-function SiteBackdrop({
-  videoActive,
-  videoRef,
-}: {
-  videoActive: boolean;
-  videoRef: React.RefObject<HTMLVideoElement | null>;
-}) {
+function SiteBackdrop({ videoRef }: { videoRef: React.RefObject<HTMLVideoElement | null> }) {
   return (
     <div className="site-backdrop fixed inset-0 z-0 overflow-hidden bg-background" aria-hidden="true">
-      <img
-        className="site-backdrop-image absolute inset-0 h-full w-full object-cover"
-        src={portraitUrl}
-        alt=""
-      />
       <video
         ref={videoRef}
-        className={`site-backdrop-video h-full w-full object-cover ${
-          videoActive ? "" : "is-hidden"
-        }`}
+        className="site-backdrop-video h-full w-full object-cover"
         autoPlay
         loop
         muted
