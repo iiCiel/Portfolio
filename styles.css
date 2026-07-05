@@ -9,8 +9,7 @@
   --cyan: #58d7ff;
   --amber: #e4b64b;
   --red: #ff604f;
-  --blueprint: #203b4a;
-  --shadow: 0 28px 90px rgba(0, 0, 0, 0.55);
+  --shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
 }
 
 * {
@@ -26,32 +25,24 @@ body {
   min-width: 320px;
   color: var(--paper);
   background:
-    radial-gradient(circle at 22% 0%, rgba(88, 215, 255, 0.15), transparent 27rem),
+    radial-gradient(circle at 22% 0%, rgba(88, 215, 255, 0.13), transparent 27rem),
     linear-gradient(180deg, #020303 0%, var(--ink) 52%, #090b0c 100%);
   font-family: "Space Grotesk", system-ui, sans-serif;
-  letter-spacing: 0;
 }
 
+/* single fixed background layer instead of two stacked full-viewport
+   pseudo-elements — halves the paint cost of every scroll/composite pass */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -2;
-  background-image:
-    linear-gradient(rgba(232, 236, 231, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 236, 231, 0.035) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 82%);
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
   z-index: -1;
-  pointer-events: none;
-  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px);
-  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(232, 236, 231, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 236, 231, 0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 82%);
+  contain: strict;
 }
 
 a {
@@ -80,17 +71,21 @@ img {
   transform: translateY(0);
 }
 
+/* cursor light: moved with transform (GPU compositor only, no layout/paint
+   of the gradient itself) and updated via a single scoped custom property
+   set once per animation frame instead of on every raw pointermove event */
 .cursor-light {
   position: fixed;
-  inset: auto;
-  left: var(--mouse-x, 50vw);
-  top: var(--mouse-y, 20vh);
+  left: 0;
+  top: 0;
   z-index: -1;
-  width: 32rem;
-  height: 32rem;
+  width: 30rem;
+  height: 30rem;
+  margin: -15rem 0 0 -15rem;
   pointer-events: none;
-  background: radial-gradient(circle, rgba(88, 215, 255, 0.14), transparent 62%);
-  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(88, 215, 255, 0.12), transparent 62%);
+  transform: translate3d(var(--mx, 50vw), var(--my, 20vh), 0);
+  will-change: transform;
 }
 
 .site-header {
@@ -105,19 +100,15 @@ img {
   gap: 1rem;
   padding: 0.65rem;
   border: 1px solid var(--line);
-  background: rgba(4, 5, 6, 0.78);
-  backdrop-filter: blur(18px);
-}
-
-.site-header,
-.hero,
-.section-pad,
-.contact {
+  background: rgba(6, 8, 9, 0.92);
   transform: translateX(-50%);
 }
 
-.site-header {
-  transform: translateX(-50%);
+@supports (backdrop-filter: blur(1px)) {
+  .site-header {
+    background: rgba(6, 8, 9, 0.7);
+    backdrop-filter: blur(10px);
+  }
 }
 
 .mark,
@@ -174,6 +165,7 @@ nav a:hover,
   position: relative;
   left: 50%;
   width: min(1180px, calc(100% - 2rem));
+  transform: translateX(-50%);
 }
 
 .hero {
@@ -191,7 +183,7 @@ nav a:hover,
   width: min(48rem, 84vw);
   height: 0.58rem;
   background: linear-gradient(90deg, transparent, #fff 8%, #fff 88%, transparent);
-  box-shadow: 0 0 26px rgba(255, 255, 255, 0.72);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.6);
   transform: skewY(-4deg);
 }
 
@@ -226,7 +218,6 @@ h1 {
   font-size: clamp(4.2rem, 12vw, 11rem);
   line-height: 0.78;
   text-transform: uppercase;
-  letter-spacing: 0;
 }
 
 h1 span {
@@ -235,7 +226,6 @@ h1 span {
   max-width: 100%;
   color: var(--paper);
   white-space: nowrap;
-  text-shadow: 0 0 1px var(--paper), 0 22px 50px rgba(0, 0, 0, 0.8);
 }
 
 h1 span:last-child {
@@ -347,11 +337,12 @@ h1 span:last-child {
   color: var(--cyan);
   font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
+  font-size: 1.4rem;
 }
 
 .evidence-strip strong {
   display: block;
-  margin: 1.8rem 0 0.6rem;
+  margin: 1.2rem 0 0.6rem;
   text-transform: uppercase;
 }
 
@@ -382,7 +373,6 @@ h2 {
   font-size: clamp(2.25rem, 6vw, 5.8rem);
   line-height: 0.9;
   text-transform: uppercase;
-  letter-spacing: 0;
 }
 
 .capability-grid {
@@ -491,6 +481,7 @@ h2 {
   grid-template-rows: 1fr 0.8fr;
   gap: 1rem;
   padding: 1rem;
+  height: 100%;
 }
 
 .app-visual div {
@@ -507,6 +498,7 @@ h2 {
   align-items: center;
   gap: 0.6rem;
   padding: 1rem;
+  height: 100%;
 }
 
 .packet-visual span {
@@ -599,8 +591,8 @@ h2 {
 
 .reveal {
   opacity: 0;
-  transform: translateY(2rem);
-  transition: opacity 760ms ease, transform 760ms ease;
+  transform: translateY(1.5rem);
+  transition: opacity 500ms ease, transform 500ms ease;
 }
 
 .reveal.is-visible {
@@ -637,6 +629,12 @@ h2 {
 
   .section-intro {
     grid-template-columns: 1fr;
+  }
+
+  /* the ambient cursor light adds compositing cost for no real benefit
+     on touch devices, where there's no pointer to follow anyway */
+  .cursor-light {
+    display: none;
   }
 }
 
@@ -697,6 +695,10 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .cursor-light {
+    display: none;
+  }
+
   *,
   *::before,
   *::after {
