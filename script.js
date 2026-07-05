@@ -1,17 +1,26 @@
-const tiltCard = document.querySelector("[data-tilt-card]");
+const cursorLight = document.querySelector(".cursor-light");
 
-if (tiltCard && window.matchMedia("(pointer: fine)").matches) {
-  tiltCard.addEventListener("pointermove", (event) => {
-    const bounds = tiltCard.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-    tiltCard.style.transform = `perspective(900px) rotateX(${y * -5}deg) rotateY(${x * 7}deg)`;
-  });
-
-  tiltCard.addEventListener("pointerleave", () => {
-    tiltCard.style.transform = "";
+if (cursorLight && window.matchMedia("(pointer: fine)").matches) {
+  window.addEventListener("pointermove", (event) => {
+    document.documentElement.style.setProperty("--mouse-x", `${event.clientX}px`);
+    document.documentElement.style.setProperty("--mouse-y", `${event.clientY}px`);
   });
 }
+
+const reveals = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.16 }
+);
+
+reveals.forEach((element) => revealObserver.observe(element));
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", () => {
@@ -20,25 +29,3 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     }
   });
 });
-
-const revealTargets = document.querySelectorAll(
-  ".hero-copy, .portrait-stage, .tool-strip, .section-heading, .about-grid, .project-row, .skills-section .skill-cloud, .ai-workflow-grid, .motion-prompt-row, .contact-band, .site-footer"
-);
-
-revealTargets.forEach((element) => {
-  element.setAttribute("data-reveal", "");
-});
-
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-revealed");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12 }
-);
-
-revealTargets.forEach((element) => revealObserver.observe(element));

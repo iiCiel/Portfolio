@@ -5,309 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Soliman Alktaifan portfolio: cybersecurity student, SOC investigation, AI tooling, IT support, and software projects."
+      content="Soliman Alktaifan portfolio: cybersecurity student, SOC investigation, network forensics, AI tooling, and technical support."
     >
     <title>Soliman Alktaifan | Cybersecurity Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="scanline" aria-hidden="true"></div>
+    <div class="cursor-light" aria-hidden="true"></div>
 
-    <header class="site-header" aria-label="Primary">
-      <a class="brand" href="#top" aria-label="Soliman Alktaifan home">SA</a>
-      <nav class="nav-links" aria-label="Portfolio sections">
-        <a href="#about">About</a>
-        <a href="#ai-workflow">AI</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+    <header class="site-header">
+      <a class="mark" href="#top" aria-label="Soliman Alktaifan home">SA</a>
+      <nav aria-label="Primary navigation">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#work">Work</a>
+        <a href="#ai">AI</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="header-cta" href="assets/Soliman_Alktaifan_Resume.pdf" download>Resume</a>
+      <a class="resume-link" href="assets/Soliman_Alktaifan_Resume.pdf" download>Resume</a>
     </header>
 
     <main id="main">
       <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="light-bar" aria-hidden="true"></div>
-        <div class="hero-copy">
-          <p class="eyebrow">Cybersecurity student / AI builder / IT support</p>
-          <h1 id="hero-title">Hi, I'm Soliman Alktaifan</h1>
-          <div class="role-stack" aria-label="Professional focus">
-            <span>University of Akron cybersecurity student</span>
-            <span>SOC investigation, forensics, and incident reports</span>
-            <span>Python, TypeScript, Splunk, Wireshark, Linux</span>
+        <div class="monitor-light" aria-hidden="true"></div>
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <p class="case-label">Case file / UA-CYBR-2027 / portfolio</p>
+            <h1 id="hero-title">
+              <span>Soliman</span>
+              <span>Alktaifan</span>
+            </h1>
+            <p class="hero-kicker">Cybersecurity student building the bridge between investigation, automation, and clear technical communication.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="mailto:solimansultan59@gmail.com">Start a conversation</a>
+              <a class="button ghost" href="#work">Review work</a>
+            </div>
           </div>
-          <p class="hero-summary">
-            I build practical security and AI tools, investigate network evidence, and turn messy technical
-            findings into clear reports. Currently focused on cybersecurity internships, SOC workflows,
-            automation, and reliable support work.
-          </p>
-          <div class="hero-actions" aria-label="Primary links">
-            <a class="button primary" href="mailto:solimansultan59@gmail.com">Contact me</a>
-            <a class="button secondary" href="assets/Soliman_Alktaifan_Resume.pdf" download>Download CV</a>
-          </div>
-        </div>
 
-        <div class="portrait-stage" aria-label="Portrait and portfolio status">
-          <div class="portrait-card" data-tilt-card>
+          <aside class="identity-card reveal" aria-label="Candidate profile card">
+            <div class="id-top">
+              <span>Verified profile</span>
+              <span>Open</span>
+            </div>
             <img src="assets/soliman.jpg" alt="Portrait of Soliman Alktaifan">
-            <div class="portrait-glass">
-              <span class="status-dot"></span>
-              Open to internships
+            <div class="id-bottom">
+              <strong>Cybersecurity BS</strong>
+              <span>University of Akron / GPA 4.0 / Class of 2027</span>
             </div>
-          </div>
-          <div class="signal-panel" aria-label="Portfolio highlights">
-            <div>
-              <strong>4.0</strong>
-              <span>GPA</span>
-            </div>
-            <div>
-              <strong>2027</strong>
-              <span>BS Cybersecurity</span>
-            </div>
-            <div>
-              <strong>Arabic</strong>
-              <span>Native fluency</span>
-            </div>
-          </div>
+          </aside>
         </div>
 
-        <aside class="social-rail" aria-label="Social links">
-          <a href="https://github.com/iiCiel" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/soliman-alktaifan" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="mailto:solimansultan59@gmail.com">Email</a>
-        </aside>
-      </section>
-
-      <section class="tool-strip" aria-labelledby="tool-strip-title">
-        <h2 id="tool-strip-title" class="visually-hidden">Tools and preview work</h2>
-        <div class="tool-icons" aria-label="Core tools">
-          <span>Py</span>
-          <span>TS</span>
-          <span>Linux</span>
-          <span>SQL</span>
-          <span>Splunk</span>
-          <span>Wire</span>
-        </div>
-        <div class="preview-wall" aria-label="Portfolio preview tiles">
-          <div class="preview-tile wide">
-            <span></span>
-            <strong>SOC alert triage</strong>
+        <div class="evidence-strip reveal" aria-label="Portfolio evidence">
+          <div>
+            <span>01</span>
+            <strong>SOC triage</strong>
+            <p>Phishing alerts, Splunk searches, MITRE ATT&CK notes.</p>
           </div>
-          <div class="preview-tile">
-            <span></span>
-            <strong>HackLab Coach</strong>
+          <div>
+            <span>02</span>
+            <strong>Network forensics</strong>
+            <p>Wireshark, tcpdump, PCAP evidence, incident timelines.</p>
           </div>
-          <div class="preview-tile">
-            <span></span>
-            <strong>Packet evidence</strong>
+          <div>
+            <span>03</span>
+            <strong>AI systems</strong>
+            <p>Security coaching tools, rubric grading, report generation.</p>
           </div>
-          <div class="preview-tile">
-            <span></span>
-            <strong>Daily Mood App</strong>
-          </div>
-          <div class="preview-tile wide">
-            <span></span>
-            <strong>Incident report</strong>
-          </div>
-          <div class="preview-tile">
-            <span></span>
-            <strong>Support notes</strong>
+          <div>
+            <span>04</span>
+            <strong>Support habits</strong>
+            <p>Documentation, troubleshooting, hardware, Linux, GitHub.</p>
           </div>
         </div>
       </section>
 
-      <section class="section ai-workflow-section" id="ai-workflow" aria-labelledby="ai-workflow-title">
-        <div class="section-heading">
-          <p class="eyebrow">AI workflow</p>
-          <h2 id="ai-workflow-title">Agent skills I use to build faster.</h2>
+      <section class="capabilities section-pad" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-intro reveal">
+          <p class="case-label">Capabilities</p>
+          <h2 id="capabilities-title">The toolkit is built for evidence, not decoration.</h2>
         </div>
-        <div class="ai-workflow-grid">
-          <div class="agent-console" aria-label="AI workflow command examples">
-            <div class="console-top">
-              <span></span>
-              <span></span>
-              <span></span>
-              <strong>skills.sh / motion prompts</strong>
-            </div>
-            <div class="console-lines">
-              <p><span>$</span> npx skills add frontend-design</p>
-              <p><span>$</span> npx skills add web-design-guidelines</p>
-              <p><span>$</span> run browser QA: desktop + mobile</p>
-              <p><span>$</span> ship animated portfolio section</p>
-            </div>
-          </div>
-          <div class="ai-skill-grid">
-            <article class="ai-skill-card">
-              <span>01</span>
-              <h3>Frontend design</h3>
-              <p>Turn rough references into responsive layouts, visual hierarchy, and polished components.</p>
-            </article>
-            <article class="ai-skill-card">
-              <span>02</span>
-              <h3>Browser QA</h3>
-              <p>Check viewport behavior, console errors, image loading, and layout overflow before release.</p>
-            </article>
-            <article class="ai-skill-card">
-              <span>03</span>
-              <h3>Motion prompts</h3>
-              <p>Use prompt-driven hero patterns, animated bands, reveal timing, and interactive details.</p>
-            </article>
-            <article class="ai-skill-card">
-              <span>04</span>
-              <h3>Security writing</h3>
-              <p>Convert lab evidence, alerts, and findings into concise incident-style documentation.</p>
-            </article>
-          </div>
-        </div>
-        <div class="motion-prompt-row" aria-label="Motion prompt cues">
-          <span>Animated hero</span>
-          <span>Glass HUD</span>
-          <span>Scroll reveal</span>
-          <span>Responsive QA</span>
-          <span>AI-assisted build</span>
+        <div class="capability-grid">
+          <article class="capability-card reveal">
+            <div class="cap-icon">SPL</div>
+            <h3>Security operations</h3>
+            <p>Alert triage, log review, phishing analysis, vulnerability scanning, and concise escalation notes.</p>
+          </article>
+          <article class="capability-card reveal">
+            <div class="cap-icon">PCAP</div>
+            <h3>Forensics</h3>
+            <p>Packet inspection, timeline building, indicators of compromise, and network evidence summaries.</p>
+          </article>
+          <article class="capability-card reveal">
+            <div class="cap-icon">PY</div>
+            <h3>Automation</h3>
+            <p>Python and TypeScript workflows that reduce repetitive analysis and make findings easier to reuse.</p>
+          </article>
+          <article class="capability-card reveal">
+            <div class="cap-icon">DOC</div>
+            <h3>Communication</h3>
+            <p>Technical reports, incident writeups, support documentation, and plain-language status updates.</p>
+          </article>
         </div>
       </section>
 
-      <section class="section about-section" id="about" aria-labelledby="about-title">
-        <div class="shape sticker-star" aria-hidden="true"></div>
-        <div class="shape sticker-heart" aria-hidden="true"></div>
-        <div class="shape sticker-cube" aria-hidden="true"></div>
-        <div class="shape sticker-flower" aria-hidden="true"></div>
-        <div class="section-heading">
-          <p class="eyebrow">About me</p>
-          <h2 id="about-title">Security-minded builder with support habits.</h2>
+      <section class="work section-pad" id="work" aria-labelledby="work-title">
+        <div class="section-intro reveal">
+          <p class="case-label">Selected work</p>
+          <h2 id="work-title">Projects presented as case evidence.</h2>
         </div>
-        <div class="about-grid">
-          <p>
-            I study cybersecurity at the University of Akron and work across SOC-style analysis, network
-            forensics, technical support, and AI-assisted development. My strongest work combines investigation,
-            documentation, and automation.
-          </p>
-          <p>
-            I have hands-on practice with phishing triage, packet analysis, Splunk searches, Linux tooling,
-            vulnerability scanning, and incident writeups. I also build software projects where the UX makes
-            technical workflows easier to finish.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <p class="eyebrow">Projects</p>
-          <h2 id="projects-title">Work that proves the range.</h2>
-        </div>
-        <div class="project-showcase">
-          <article class="project-row">
-            <div class="project-number">01</div>
-            <div class="project-copy">
-              <div class="project-meta">AI security training</div>
+        <div class="case-stack">
+          <article class="case-card reveal">
+            <div class="case-copy">
+              <span class="case-id">HLC-01</span>
               <h3>HackLab Coach</h3>
-              <p>
-                Socratic coaching, adaptive cyber challenges, rubric grading, and incident report generation.
-              </p>
-              <a href="https://github.com/iiCiel/hacklab-coach" target="_blank" rel="noreferrer">View</a>
+              <p>AI-guided cybersecurity training platform with adaptive challenges, Socratic coaching, rubric grading, and incident report generation.</p>
+              <a href="https://github.com/iiCiel/hacklab-coach" target="_blank" rel="noreferrer">Open repository</a>
             </div>
-            <div class="project-preview security-preview" aria-hidden="true">
-              <div class="window large"></div>
-              <div class="window side"></div>
-              <div class="window small"></div>
+            <div class="case-visual" aria-hidden="true">
+              <div class="terminal-window">
+                <p><span>$</span> generate soc challenge</p>
+                <p>alert_type=phishing</p>
+                <p>rubric=investigation_depth</p>
+                <p>report_status=ready</p>
+              </div>
             </div>
           </article>
-          <article class="project-row">
-            <div class="project-number">02</div>
-            <div class="project-copy">
-              <div class="project-meta">Full-stack app</div>
+          <article class="case-card reveal">
+            <div class="case-copy">
+              <span class="case-id">DMA-02</span>
               <h3>Daily Mood App</h3>
-              <p>
-                A clean mood-tracking app built around quick entries, readable history, and practical patterns.
-              </p>
-              <a href="https://github.com/iiCiel/Daily-Mood-App" target="_blank" rel="noreferrer">View</a>
+              <p>Full-stack app focused on simple tracking, fast entry, and readable history so a repeated personal workflow stays usable.</p>
+              <a href="https://github.com/iiCiel/Daily-Mood-App" target="_blank" rel="noreferrer">Open repository</a>
             </div>
-            <div class="project-preview app-preview" aria-hidden="true">
-              <div class="window large"></div>
-              <div class="window side"></div>
-              <div class="window small"></div>
+            <div class="case-visual app-visual" aria-hidden="true">
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
           </article>
-          <article class="project-row">
-            <div class="project-number">03</div>
-            <div class="project-copy">
-              <div class="project-meta">Cyber labs</div>
-              <h3>SOC and Forensics Work</h3>
-              <p>
-                Phishing triage, PCAP analysis, Splunk searches, MITRE ATT&CK mapping, and concise reports.
-              </p>
-              <a href="https://github.com/iiCiel" target="_blank" rel="noreferrer">GitHub</a>
+          <article class="case-card reveal">
+            <div class="case-copy">
+              <span class="case-id">SOC-03</span>
+              <h3>SOC and forensics labs</h3>
+              <p>TryHackMe SOC simulator work, packet analysis, Splunk investigations, MITRE ATT&CK mapping, and incident-style reporting.</p>
+              <a href="https://github.com/iiCiel" target="_blank" rel="noreferrer">View GitHub</a>
             </div>
-            <div class="project-preview lab-preview" aria-hidden="true">
-              <div class="window large"></div>
-              <div class="window side"></div>
-              <div class="window small"></div>
+            <div class="case-visual packet-visual" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section skills-section" id="skills" aria-labelledby="skills-title">
-        <div class="section-heading">
-          <p class="eyebrow">Stack</p>
-          <h2 id="skills-title">Tools I use to investigate and build.</h2>
+      <section class="ai section-pad" id="ai" aria-labelledby="ai-title">
+        <div class="section-intro reveal">
+          <p class="case-label">AI-assisted workflow</p>
+          <h2 id="ai-title">I use agent skills as a disciplined build system.</h2>
         </div>
-        <div class="skill-cloud" aria-label="Technical skills">
-          <span>Python</span>
-          <span>TypeScript</span>
-          <span>Linux</span>
-          <span>Splunk</span>
-          <span>Wireshark</span>
-          <span>tcpdump</span>
-          <span>Nmap</span>
-          <span>Nessus</span>
-          <span>SQL</span>
-          <span>GitHub</span>
-          <span>Incident reports</span>
-          <span>Technical support</span>
+        <div class="workflow reveal">
+          <div class="workflow-console">
+            <p><span>$</span> skills use frontend-design</p>
+            <p>plan: subject-first visual identity</p>
+            <p><span>$</span> translate motion prompt into static code</p>
+            <p>output: responsive HTML / CSS / JS</p>
+            <p><span>$</span> run webapp-testing</p>
+            <p>desktop + mobile + console checks passed</p>
+          </div>
+          <div class="workflow-copy">
+            <h3>Where AI helps</h3>
+            <p>I use AI to accelerate drafts, compare interaction patterns, and pressure-test wording. I still verify the output through browser checks, accessibility basics, and real project context.</p>
+            <div class="skill-tags">
+              <span>frontend-design</span>
+              <span>webapp-testing</span>
+              <span>motion prompts</span>
+              <span>incident writing</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="contact-band" id="contact" aria-labelledby="contact-title">
-        <div>
-          <p class="eyebrow dark">Contact</p>
-          <h2 id="contact-title">Let's get in touch</h2>
-          <a href="mailto:solimansultan59@gmail.com">solimansultan59@gmail.com</a>
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-inner reveal">
+          <p class="case-label">Handoff</p>
+          <h2 id="contact-title">Looking for cybersecurity, IT, software, or AI internship work.</h2>
+          <div class="contact-links">
+            <a class="button primary" href="mailto:solimansultan59@gmail.com">Email Soliman</a>
+            <a class="button dark" href="https://www.linkedin.com/in/soliman-alktaifan" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="button dark" href="https://github.com/iiCiel" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </div>
-        <form class="contact-form" action="mailto:solimansultan59@gmail.com" method="post" enctype="text/plain">
-          <label>
-            <span>Name</span>
-            <input name="name" autocomplete="name">
-          </label>
-          <label>
-            <span>Email</span>
-            <input name="email" type="email" autocomplete="email">
-          </label>
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="4"></textarea>
-          </label>
-          <button type="submit">Send</button>
-        </form>
       </section>
-
-      <footer class="site-footer">
-        <div class="footer-name">Soliman Alktaifan</div>
-        <div class="footer-links">
-          <a href="https://github.com/iiCiel" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/soliman-alktaifan" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="assets/Soliman_Alktaifan_Resume.pdf" download>Resume</a>
-        </div>
-        <div class="footer-shapes" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </footer>
     </main>
 
     <script src="script.js"></script>
