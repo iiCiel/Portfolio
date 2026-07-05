@@ -49,10 +49,6 @@
     font-family: var(--font-body);
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   button,
   a {
     -webkit-tap-highlight-color: transparent;
@@ -66,47 +62,20 @@
     width: min(1280px, calc(100% - 2rem));
     margin-inline: auto;
     padding-block: clamp(5rem, 9vw, 8rem);
+    content-visibility: auto;
+    contain: layout paint style;
+    contain-intrinsic-size: auto 900px;
   }
 
   .liquid-glass {
     background: rgba(255, 255, 255, 0.035);
     background-blend-mode: luminosity;
-    border: none;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.12),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.06);
     position: relative;
     overflow: hidden;
-  }
-
-  @supports (backdrop-filter: blur(1px)) {
-    nav .liquid-glass,
-    .hero-dossier.liquid-glass,
-    .contact-panel.liquid-glass,
-    a.liquid-glass,
-    p.liquid-glass {
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-    }
-  }
-
-  .liquid-glass::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.45) 0%,
-      rgba(255, 255, 255, 0.15) 20%,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0) 60%,
-      rgba(255, 255, 255, 0.15) 80%,
-      rgba(255, 255, 255, 0.45) 100%
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
   }
 
   .glass-panel {
@@ -122,19 +91,22 @@
   .glass-panel::before {
     content: "";
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.42),
-      rgba(255, 255, 255, 0.05) 38%,
-      rgba(255, 255, 255, 0.18)
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.44), transparent);
     pointer-events: none;
+  }
+
+  .site-backdrop {
+    contain: strict;
+  }
+
+  .site-backdrop-video {
+    transform: translateZ(0);
+  }
+
+  .site-backdrop-video.is-hidden {
+    display: none;
   }
 
   .backdrop-grid {
@@ -142,8 +114,7 @@
       linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
     background-size: 72px 72px;
-    opacity: 0.55;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), transparent 70%);
+    opacity: 0.26;
   }
 
   .hero-dossier {
@@ -248,9 +219,10 @@
 
   .marquee-track {
     display: flex;
-    width: max-content;
-    gap: 2.5rem;
-    animation: marquee 34s linear infinite;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 2rem;
+    width: 100%;
   }
 }
 
@@ -278,14 +250,6 @@
     animation: fade-rise 0.8s ease-out 0.4s both;
   }
 
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
 }
 
 @media (max-width: 640px) {
