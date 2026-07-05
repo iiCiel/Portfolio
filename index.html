@@ -1,1335 +1,262 @@
 <!doctype html>
-<html lang="en" class="h-full">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soliman Alktaifan | Cybersecurity Portfolio</title>
-  <meta name="description" content="Cybersecurity portfolio of Soliman Alktaifan — secure systems, automation, and practical security-focused projects.">
-  <meta property="og:title" content="Soliman Alktaifan | Cybersecurity Portfolio">
-  <meta property="og:description" content="Cybersecurity Student | Builder | Incident-minded. Seeking Summer '26, Fall '26, or Spring '27 internships (CPT-eligible).">
-  <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0a0f1a">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0f1a'/><text x='4' y='24' font-family='monospace' font-size='20' font-weight='bold' fill='%2306b6d4'>S</text></svg>">
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-primary: #0a0f1a;
-      --bg-secondary: #111827;
-      --bg-card: #1a2332;
-      --accent: #06b6d4;
-      --accent-glow: rgba(6, 182, 212, 0.15);
-      --text-primary: #f1f5f9;
-      --text-secondary: #94a3b8;
-      --border: #1e293b;
-    }
-    * { box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--accent) var(--bg-secondary); }
-    html { scroll-behavior: smooth; }
-    .font-display { font-family: 'Space Grotesk', sans-serif; }
-    .font-mono { font-family: 'JetBrains Mono', monospace; }
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Soliman Alktaifan portfolio: cybersecurity student, SOC investigation, AI tooling, IT support, and software projects."
+    >
+    <title>Soliman Alktaifan | Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scanline" aria-hidden="true"></div>
 
-    .skip-link { position: absolute; left: -999px; top: 0; background: var(--accent); color: #001019; padding: 0.5rem 0.75rem; z-index: 100; border-radius: 0 0 0.5rem 0; font-weight: 600; }
-    .skip-link:focus { left: 0; top: 0; }
+    <header class="site-header" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Soliman Alktaifan home">SA</a>
+      <nav class="nav-links" aria-label="Portfolio sections">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-cta" href="assets/Soliman_Alktaifan_Resume.pdf" download>Resume</a>
+    </header>
 
-    #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="light-bar" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Cybersecurity student / AI builder / IT support</p>
+          <h1 id="hero-title">Hi, I'm Soliman Alktaifan</h1>
+          <div class="role-stack" aria-label="Professional focus">
+            <span>University of Akron cybersecurity student</span>
+            <span>SOC investigation, forensics, and incident reports</span>
+            <span>Python, TypeScript, Splunk, Wireshark, Linux</span>
+          </div>
+          <p class="hero-summary">
+            I build practical security and AI tools, investigate network evidence, and turn messy technical
+            findings into clear reports. Currently focused on cybersecurity internships, SOC workflows,
+            automation, and reliable support work.
+          </p>
+          <div class="hero-actions" aria-label="Primary links">
+            <a class="button primary" href="mailto:solimansultan59@gmail.com">Contact me</a>
+            <a class="button secondary" href="assets/Soliman_Alktaifan_Resume.pdf" download>Download CV</a>
+          </div>
+        </div>
 
-    .network-bg {
-      background-image:
-        radial-gradient(circle at 20% 80%, var(--accent-glow) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
-        linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
-      position: relative;
-    }
-    .network-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2306b6d4' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    .terminal-texture {
-      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(26, 35, 50, 0.95) 100%);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-    .terminal-texture::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-
-    .glow-border { position: relative; }
-    .glow-border::after {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      background: linear-gradient(135deg, var(--accent), transparent 50%);
-      border-radius: inherit;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .glow-border:hover::after { opacity: 1; }
-
-    .chip {
-      background: rgba(6, 182, 212, 0.1);
-      border: 1px solid rgba(6, 182, 212, 0.3);
-      color: var(--accent);
-      padding: 0.375rem 0.875rem;
-      border-radius: 9999px;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.375rem;
-      transition: all 0.2s ease;
-    }
-    .chip:hover { background: rgba(6, 182, 212, 0.2); border-color: var(--accent); }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg-primary);
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-    }
-    .btn-primary:hover { background: #22d3ee; transform: translateY(-2px); box-shadow: 0 10px 40px rgba(6, 182, 212, 0.3); }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text-primary);
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-    }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* Cards with top accent glow */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .card:hover { border-color: rgba(6, 182, 212, 0.5); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
-    .card:hover::before { opacity: 1; }
-
-    .timeline-item { position: relative; padding-left: 2rem; }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0.5rem;
-      width: 0.75rem; height: 0.75rem;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 20px var(--accent);
-    }
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      left: 0.3125rem; top: 1.5rem;
-      width: 2px;
-      height: calc(100% - 1rem);
-      background: linear-gradient(to bottom, var(--accent), transparent);
-    }
-    .timeline-item:last-child::after { display: none; }
-
-    .skill-icon {
-      width: 2.5rem; height: 2.5rem;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(6, 182, 212, 0.1);
-      border-radius: 0.5rem;
-      color: var(--accent);
-    }
-
-    /* Skill tags with hover glow */
-    .skill-tag {
-      padding: 0.375rem 0.75rem;
-      font-size: 0.875rem;
-      background: var(--border);
-      color: var(--text-secondary);
-      border-radius: 0.5rem;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-    }
-    .skill-tag:hover {
-      background: rgba(6, 182, 212, 0.15);
-      color: var(--accent);
-      border-color: rgba(6, 182, 212, 0.3);
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .section-title::before {
-      content: '';
-      width: 0.25rem; height: 2rem;
-      background: var(--accent);
-      border-radius: 0.125rem;
-    }
-
-    .nav-link { color: var(--text-secondary); font-weight: 500; transition: color 0.2s ease; position: relative; text-decoration: none; }
-    .nav-link:hover, .nav-link.active { color: var(--accent); }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -0.25rem; left: 0;
-      width: 0; height: 2px;
-      background: var(--accent);
-      transition: width 0.2s ease;
-    }
-    .nav-link:hover::after { width: 100%; }
-
-    /* Navbar shrink on scroll */
-    .site-nav { transition: padding 0.3s ease, background 0.3s ease; }
-    .site-nav.scrolled { background: rgba(10, 15, 26, 0.98) !important; }
-    .site-nav.scrolled .nav-inner { padding-top: 0.625rem; padding-bottom: 0.625rem; }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* Hero staggered entrance */
-    .hero-enter { opacity: 0; transform: translateY(20px); animation: heroIn 0.7s ease forwards; }
-    .hero-enter:nth-child(1) { animation-delay: 0.1s; }
-    .hero-enter:nth-child(2) { animation-delay: 0.25s; }
-    .hero-enter:nth-child(3) { animation-delay: 0.4s; }
-    .hero-enter:nth-child(4) { animation-delay: 0.55s; }
-    .hero-enter:nth-child(5) { animation-delay: 0.7s; }
-    .hero-enter:nth-child(6) { animation-delay: 0.85s; }
-    @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
-
-    /* Name gradient */
-    .name-gradient {
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .cert-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      transition: all 0.2s ease;
-    }
-    .cert-badge:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .cert-icon {
-      width: 2.5rem; height: 2.5rem;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--accent), #0891b2);
-      border-radius: 0.5rem;
-      color: white;
-      font-weight: 700;
-      font-size: 0.75rem;
-      flex-shrink: 0;
-    }
-
-    .typed-cursor { animation: blink 1s step-end infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-
-    /* Back to top */
-    #back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 50;
-      width: 3rem; height: 3rem;
-      border-radius: 0.75rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(1rem);
-      transition: all 0.3s ease;
-      pointer-events: none;
-    }
-    #back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-    #back-to-top:hover { background: var(--accent); color: var(--bg-primary); border-color: var(--accent); transform: translateY(-2px); }
-
-    /* Pokemon / Pokedex styles */
-    @keyframes pokeFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(10deg); }
-    }
-    @keyframes barGrow {
-      to { width: 30%; }
-    }
-
-    /* Pokeball throw-in animation */
-    @keyframes pokeThrow {
-      0% { transform: translate(-400%, -50%) rotate(0deg) scale(0.3); opacity: 0; }
-      20% { opacity: 1; }
-      50% { transform: translate(-50%, -80%) rotate(540deg) scale(1.1); }
-      70% { transform: translate(-50%, -50%) rotate(720deg) scale(1.05); }
-      85% { transform: translate(-50%, -50%) rotate(720deg) scale(0.95); }
-      100% { transform: translate(-50%, -50%) rotate(720deg) scale(1); }
-    }
-    @keyframes pokeShake {
-      0%, 100% { transform: translate(-50%, -50%) rotate(720deg); }
-      25% { transform: translate(-50%, -50%) rotate(710deg); }
-      75% { transform: translate(-50%, -50%) rotate(730deg); }
-    }
-    @keyframes pokeCatch {
-      0% { transform: translate(-50%, -50%) scale(1); }
-      50% { transform: translate(-50%, -50%) scale(1.3); }
-      100% { transform: translate(-50%, -50%) scale(1); }
-    }
-    @keyframes starBurst {
-      0% { opacity: 1; transform: scale(0); }
-      100% { opacity: 0; transform: scale(3); }
-    }
-
-    /* Section color transition */
-    #best-skill {
-      background: #111827;
-      transition: background 0.8s ease, color 0.8s ease;
-    }
-    #best-skill.poke-active {
-      background: linear-gradient(180deg, #fef2f2 0%, #ffffff 30%, #ffffff 70%, #fef2f2 100%);
-    }
-    #best-skill.poke-active .poke-title { color: #1a1a2e; }
-    #best-skill.poke-active .poke-subtitle { color: #dc2626; }
-    #best-skill.poke-active .poke-tagline { color: #4b5563; }
-    #best-skill.poke-active .poke-tagline-bold { color: #1a1a2e; }
-    #best-skill.poke-active .poke-footer { color: #6b7280; }
-    #best-skill.poke-active .poke-footer span { color: #dc2626; }
-    #best-skill.poke-active .pokedex-card {
-      background: #fff;
-      border-color: #e5e7eb;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    #best-skill.poke-active .pokedex-card:hover {
-      border-color: #dc2626;
-      box-shadow: 0 8px 24px rgba(220,38,38,0.12);
-    }
-    #best-skill.poke-active .pokedex-number { background: #f3f4f6; color: #6b7280; }
-    #best-skill.poke-active .pokedex-card .poke-skill-name { color: #1a1a2e; }
-    #best-skill.poke-active .pokedex-card .poke-skill-desc { color: #6b7280; }
-    #best-skill.poke-active .pokedex-bar { background: #f3f4f6; }
-    .poke-bg-ball { stroke: #06b6d4; fill: none; transition: stroke 0.8s ease; }
-    .poke-bg-ball-fill { fill: #06b6d4; transition: fill 0.8s ease; }
-    #best-skill.poke-active .poke-bg-ball { stroke: #dc2626; }
-    #best-skill.poke-active .poke-bg-ball-fill { fill: #dc2626; }
-
-    /* Pokeball hero element */
-    .pokeball-hero {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-400%, -50%) scale(0.3);
-      opacity: 0;
-      z-index: 5;
-      pointer-events: none;
-    }
-    .pokeball-hero.thrown {
-      animation: pokeThrow 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-    }
-    .pokeball-hero.shake {
-      animation: pokeShake 0.15s ease-in-out 3;
-    }
-    .pokeball-hero.caught {
-      animation: pokeCatch 0.4s ease forwards;
-    }
-
-    /* Star burst on catch */
-    .star-burst {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(220,38,38,0.3) 0%, transparent 70%);
-      pointer-events: none;
-      opacity: 0;
-    }
-    .star-burst.active {
-      animation: starBurst 0.6s ease-out forwards;
-    }
-
-    .pokeball-spin {
-      transition: transform 0.5s ease;
-    }
-    .pokeball-spin:hover {
-      transform: rotate(360deg);
-    }
-    .pokedex-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 1rem 1.25rem;
-      transition: all 0.4s ease;
-    }
-    .pokedex-card:hover {
-      transform: translateY(-2px);
-    }
-    .pokedex-number {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      background: var(--bg-secondary);
-      padding: 0.125rem 0.5rem;
-      border-radius: 0.25rem;
-      transition: all 0.4s ease;
-    }
-    .pokedex-type {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      padding: 0.125rem 0.625rem;
-      border-radius: 9999px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .pokedex-bar {
-      width: 100%;
-      height: 6px;
-      background: var(--bg-secondary);
-      border-radius: 3px;
-      overflow: hidden;
-      transition: background 0.4s ease;
-    }
-    .pokedex-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), #22d3ee);
-      border-radius: 3px;
-      transition: width 1s ease;
-    }
-
-    /* ===== HALO HUD — Hero ===== */
-    .hud-bracket { position: absolute; width: 40px; height: 40px; border-color: rgba(6,182,212,0.3); z-index: 5; transition: border-color 0.3s; }
-    .hud-bracket.tl { top: 5rem; left: 2rem; border-top: 2px solid; border-left: 2px solid; }
-    .hud-bracket.tr { top: 5rem; right: 2rem; border-top: 2px solid; border-right: 2px solid; }
-    .hud-bracket.bl { bottom: 2rem; left: 2rem; border-bottom: 2px solid; border-left: 2px solid; }
-    .hud-bracket.br { bottom: 2rem; right: 2rem; border-bottom: 2px solid; border-right: 2px solid; }
-    .hud-text { position: absolute; font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; color: rgba(6,182,212,0.2); text-transform: uppercase; letter-spacing: 0.15em; z-index: 5; }
-    @keyframes visorScan { 0% { top: 5rem; opacity: 0.5; } 100% { top: 100%; opacity: 0; } }
-    .visor-scan { position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #06b6d4, transparent); z-index: 5; animation: visorScan 2.5s ease-out 1.5s forwards; opacity: 0; pointer-events: none; }
-    .shield-bar { height: 3px; background: linear-gradient(90deg, #00ff88, #06b6d4); border-radius: 2px; animation: shieldPulse 3s ease infinite; }
-    @keyframes shieldPulse { 0%,100% { opacity: 0.6; } 50% { opacity: 1; } }
-
-    /* ===== MINECRAFT — About ===== */
-    .mc-grass-border { position: absolute; top: 0; left: 0; right: 0; height: 32px; z-index: 2; pointer-events: none; opacity: 0; transition: opacity 0.8s ease; }
-    #about.mc-active .mc-grass-border { opacity: 0.2; }
-    #about.mc-active { background: linear-gradient(180deg, #2d4a1e 0%, #111827 8%, #111827 100%); }
-    .mc-element { position: absolute; pointer-events: none; opacity: 0; transition: opacity 0.8s ease; }
-    #about.mc-active .mc-element { opacity: 1; }
-    @keyframes steveRun { 0% { left: -60px; } 100% { left: calc(100% + 60px); } }
-    @keyframes steveStep { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(-1); } }
-    .mc-steve { animation: steveRun 22s linear infinite; bottom: 10%; opacity: 0.12 !important; }
-    #about.mc-active .mc-steve { opacity: 0.12 !important; }
-    .mc-tree, .mc-house { bottom: 0; opacity: 0.1 !important; }
-    .mc-block-float { animation: pokeFloat 6s ease-in-out infinite; }
-
-    /* ===== PAC-MAN — Projects ===== */
-    @keyframes pacMove { 0% { left: -50px; } 100% { left: calc(100% + 50px); } }
-    @keyframes pacChomp { 0%,100% { d: path('M20 2A18 18 0 1 1 20 38A18 18 0 1 1 20 2'); } 50% { d: path('M20 2A18 18 0 1 1 20 38L20 20Z'); } }
-    #projects.pac-active { background: #000 !important; transition: background 0.8s ease; }
-    .pac-element { position: absolute; pointer-events: none; opacity: 0; transition: opacity 0.8s ease; }
-    #projects.pac-active .pac-element { opacity: 1; }
-    .pac-dots { position: absolute; bottom: 15%; left: 0; right: 0; height: 8px; background: radial-gradient(circle 3px at center, #FFB8AE 2px, transparent 3px); background-size: 40px 8px; opacity: 0.15; pointer-events: none; }
-    .pac-ghost { animation: pokeFloat 3s ease-in-out infinite; }
-    #projects.pac-active .card { border-left: 3px solid #2121DE; }
-    #projects.pac-active .section-title::before { background: #FFFF00; }
-    .pac-score { font-family: 'JetBrains Mono', monospace; color: #FFFF00; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0; transition: opacity 0.8s ease; }
-    #projects.pac-active .pac-score { opacity: 0.6; }
-
-    /* ===== ZELDA — Experience ===== */
-    #experience.zelda-active { transition: background 0.8s ease; }
-    .zelda-element { position: absolute; pointer-events: none; opacity: 0; transition: opacity 0.8s ease; }
-    #experience.zelda-active .zelda-element { opacity: 1; }
-    #experience.zelda-active .timeline-item::before { background: none; box-shadow: none; width: 16px; height: 14px; border-radius: 0; }
-    #experience.zelda-active .timeline-item::after { background: linear-gradient(to bottom, #C8A82E, transparent); }
-    @keyframes naviFloat { 0%,100% { transform: translate(0,0); } 25% { transform: translate(15px,-10px); } 50% { transform: translate(5px,-20px); } 75% { transform: translate(-10px,-5px); } }
-    .zelda-navi { width: 8px; height: 8px; background: #00BFFF; border-radius: 50%; box-shadow: 0 0 12px #00BFFF, 0 0 24px rgba(0,191,255,0.3); animation: naviFloat 4s ease-in-out infinite; }
-    #experience.zelda-active .card { border-left: 3px solid rgba(200,168,46,0.4); }
-    #experience.zelda-active .section-title::before { background: #C8A82E; }
-
-    /* ===== TETRIS — Skills ===== */
-    #skills.tetris-active { background: #000 !important; transition: background 0.8s ease; }
-    .tetris-element { position: absolute; pointer-events: none; opacity: 0; transition: opacity 0.8s ease; }
-    #skills.tetris-active .tetris-element { opacity: 1; }
-    #skills.tetris-active::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none; z-index: 1; }
-    @keyframes tetrisFall { 0% { transform: translateY(-60px) rotate(0deg); opacity: 0; } 10% { opacity: 0.08; } 90% { opacity: 0.08; } 100% { transform: translateY(100vh) rotate(90deg); opacity: 0; } }
-    @keyframes tetrisDrop { 0% { transform: translateY(-40px); opacity: 0; } 70% { transform: translateY(4px); opacity: 1; } 85% { transform: translateY(-2px); } 100% { transform: translateY(0); } }
-    #skills.tetris-active .card { animation: tetrisDrop 0.5s ease forwards; }
-    #skills.tetris-active .card:nth-child(1) { animation-delay: 0s; }
-    #skills.tetris-active .card:nth-child(2) { animation-delay: 0.1s; }
-    #skills.tetris-active .card:nth-child(3) { animation-delay: 0.2s; }
-    #skills.tetris-active .card:nth-child(4) { animation-delay: 0.3s; }
-    #skills.tetris-active .card:nth-child(5) { animation-delay: 0.4s; }
-    #skills.tetris-active .card:nth-child(6) { animation-delay: 0.5s; }
-    .tetris-score { font-family: 'JetBrains Mono', monospace; color: #fff; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; transition: opacity 0.8s ease; }
-    #skills.tetris-active .tetris-score { opacity: 0.4; }
-    #skills.tetris-active .section-title::before { background: #A000F0; }
-
-    /* ===== MARIO — Certifications ===== */
-    #certifications.mario-active { background: linear-gradient(180deg, #5C94FC 0%, #5C94FC 60%, #C48020 60%, #8C5400 100%) !important; transition: background 0.8s ease; }
-    .mario-element { position: absolute; pointer-events: none; opacity: 0; transition: opacity 0.8s ease; }
-    #certifications.mario-active .mario-element { opacity: 1; }
-    #certifications.mario-active .cert-icon { background: linear-gradient(180deg, #FAA005 0%, #C88000 100%) !important; border: 2px solid #8C5400; border-radius: 4px; box-shadow: inset 0 -2px 0 #8C5400; }
-    #certifications.mario-active .cert-badge { background: rgba(0,0,0,0.6); border-color: rgba(255,255,255,0.2); }
-    #certifications.mario-active .section-title { color: #fff; }
-    #certifications.mario-active .section-title::before { background: #E52521; }
-    @keyframes coinBounce { 0%,100% { transform: translateY(0) scaleX(1); } 25% { transform: translateY(-15px) scaleX(0.6); } 50% { transform: translateY(-20px) scaleX(1); } 75% { transform: translateY(-15px) scaleX(0.6); } }
-    @keyframes cloudDrift { 0% { transform: translateX(-100px); } 100% { transform: translateX(calc(100vw + 100px)); } }
-    .mario-coin { animation: coinBounce 2s ease infinite; }
-    .mario-cloud { animation: cloudDrift 35s linear infinite; }
-
-    /* ===== DARK SOULS — Leadership ===== */
-    #leadership.ds-active { background: #0D0D0D !important; transition: background 0.8s ease; }
-    .ds-element { position: absolute; pointer-events: none; opacity: 0; transition: opacity 0.8s ease; }
-    #leadership.ds-active .ds-element { opacity: 1; }
-    @keyframes bonfireFlicker { 0%,100% { transform: scaleY(1) scaleX(1); } 25% { transform: scaleY(1.1) scaleX(0.9); } 50% { transform: scaleY(0.9) scaleX(1.1); } 75% { transform: scaleY(1.05) scaleX(0.95); } }
-    @keyframes emberRise { 0% { transform: translateY(0) translateX(0); opacity: 0; } 15% { opacity: 0.8; } 100% { transform: translateY(-180px) translateX(25px); opacity: 0; } }
-    @keyframes areaCleared { 0% { opacity: 0; letter-spacing: 0.5em; } 25% { opacity: 1; letter-spacing: 0.3em; } 75% { opacity: 1; letter-spacing: 0.3em; } 100% { opacity: 0; letter-spacing: 0.4em; } }
-    .ds-bonfire-flame { animation: bonfireFlicker 2s ease-in-out infinite; transform-origin: bottom center; }
-    .ds-ember { position: absolute; width: 3px; height: 3px; background: #FF6A00; border-radius: 50%; box-shadow: 0 0 6px #FF4500; animation: emberRise 4s ease-out infinite; opacity: 0; }
-    .ds-area-cleared { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 2.5rem; color: #DAA520; text-transform: uppercase; pointer-events: none; z-index: 20; opacity: 0; }
-    #leadership.ds-active .ds-area-cleared { animation: areaCleared 2.5s ease forwards; }
-    #leadership.ds-active .card { background: #0D0D0D; border-color: rgba(255,106,0,0.2); }
-    #leadership.ds-active .card:hover { border-color: rgba(255,106,0,0.6); box-shadow: 0 0 30px rgba(255,106,0,0.1); }
-    #leadership.ds-active .section-title::before { background: #FF6A00; }
-    .ds-fog { position: absolute; top: 0; left: 0; right: 0; height: 60px; background: linear-gradient(180deg, rgba(255,106,0,0.06) 0%, transparent 100%); animation: shieldPulse 4s ease infinite; }
-
-    /* ===== UNDERTALE — Contact ===== */
-    #contact.ut-active { background: #000 !important; transition: background 0.8s ease; }
-    .ut-element { position: absolute; pointer-events: none; opacity: 0; transition: opacity 0.8s ease; }
-    #contact.ut-active .ut-element { opacity: 1; }
-    #contact.ut-active .terminal-texture { background: #000 !important; border: 3px solid #fff !important; border-radius: 12px !important; }
-    #contact.ut-active .terminal-texture::before { display: none; }
-    #contact.ut-active .section-title { color: #fff; }
-    #contact.ut-active .section-title::before { background: #FF0000; }
-    #contact.ut-active .card { background: transparent; border: 3px solid; border-radius: 0; }
-    #contact.ut-active .card:nth-child(1) { border-color: #FFA500; color: #FFA500; }
-    #contact.ut-active .card:nth-child(2) { border-color: #FFFF00; color: #FFFF00; }
-    #contact.ut-active .card:nth-child(3) { border-color: #00BFFF; color: #00BFFF; }
-    #contact.ut-active .card:nth-child(4) { border-color: #D535D9; color: #D535D9; }
-    #contact.ut-active .card:hover { transform: translateY(0); box-shadow: none; }
-    .ut-soul { display: inline-block; animation: shieldPulse 1.5s ease infinite; }
-    .ut-determination { color: #FF0000; font-weight: 700; }
-
-    /* ===== RETRO ARCADE — Footer ===== */
-    @keyframes arcadeBlink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
-    .arcade-blink { animation: arcadeBlink 1s steps(1) infinite; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; color: #00FFFF; }
-    footer.arcade-active { background: #000 !important; border-color: #333 !important; }
-    footer.arcade-active::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0px, rgba(0,0,0,0.15) 1px, transparent 2px); pointer-events: none; }
-
-    /* Hide decorative elements on mobile */
-    @media (max-width: 768px) {
-      .hud-bracket, .hud-text, .mc-steve, .mc-tree, .mc-house, .zelda-sword-bg, .ds-area-cleared { display: none !important; }
-    }
-  </style>
-</head>
-<body class="h-full bg-[#0a0f1a] text-[#f1f5f9] font-display overflow-auto">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <canvas id="particles"></canvas>
-
-  <!-- Navigation -->
-  <nav id="site-nav" class="site-nav fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/90 backdrop-blur-md border-b border-[#1e293b]">
-    <div class="nav-inner max-w-6xl mx-auto px-6 py-4 flex items-center justify-between transition-all">
-      <a href="#hero" class="font-mono text-[#06b6d4] font-semibold text-lg">SA<span class="text-[#94a3b8]">_</span></a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#best-skill" class="nav-link">Best Skill</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#certifications" class="nav-link">Certs</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-      <button id="mobile-menu-btn" class="md:hidden text-[#94a3b8] hover:text-[#06b6d4]" aria-expanded="false" aria-controls="mobile-menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-[#1e293b] bg-[#0a0f1a]">
-      <div class="px-6 py-4 flex flex-col gap-4">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#best-skill" class="nav-link">Best Skill</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#certifications" class="nav-link">Certs</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Back to top -->
-  <button id="back-to-top" aria-label="Back to top">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
-  </button>
-
-  <main id="main">
-    <!-- Hero -->
-    <section id="hero" class="network-bg min-h-screen flex items-center pt-20 relative z-10">
-      <!-- Halo HUD elements -->
-      <div class="hud-bracket tl" aria-hidden="true"></div>
-      <div class="hud-bracket tr" aria-hidden="true"></div>
-      <div class="hud-bracket bl" aria-hidden="true"></div>
-      <div class="hud-bracket br" aria-hidden="true"></div>
-      <div class="visor-scan" aria-hidden="true"></div>
-      <span class="hud-text" style="top:5.5rem;left:5rem;" aria-hidden="true">MJOLNIR HUD v7.2</span>
-      <span class="hud-text" style="bottom:2.5rem;right:5rem;" aria-hidden="true">SHIELD: 100%</span>
-      <div class="max-w-6xl mx-auto px-6 py-16 w-full">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div class="hero-enter inline-flex items-center gap-2 px-3 py-1 bg-[#06b6d4]/10 border border-[#06b6d4]/30 rounded-full text-[#06b6d4] text-sm font-mono mb-6">
-              <span class="w-2 h-2 bg-[#06b6d4] rounded-full animate-pulse"></span> Available Summer &rsquo;26 &middot; Fall &rsquo;26 &middot; Spring &rsquo;27
-            </div>
-            <h1 class="hero-enter mb-2">
-              <span class="block text-5xl md:text-6xl lg:text-7xl font-bold name-gradient leading-tight">Soliman Alktaifan</span>
-            </h1>
-            <p class="hero-enter text-2xl md:text-3xl font-bold text-[#f1f5f9] mb-4">Cybersecurity Student &middot; <span class="text-[#06b6d4]">Builder</span> &middot; Incident-minded</p>
-            <p class="hero-enter text-lg md:text-xl text-[#94a3b8] leading-relaxed max-w-xl mb-8">I build secure systems, automate troubleshooting, and ship practical tools. Seeking Summer 2026, Fall 2026, or Spring 2027 internships (CPT-eligible).</p>
-            <div class="hero-enter flex flex-wrap gap-3 mb-8">
-              <span class="chip"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> GPA 4.0</span>
-              <span class="chip"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg> University of Akron</span>
-              <span class="chip"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg> B.S. Cybersecurity (2024-2027)</span>
-              <span class="chip"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> CPT-eligible</span>
-            </div>
-            <div class="hero-enter flex flex-wrap gap-4 mb-8">
-              <a href="#projects" class="btn-primary"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg> View Projects</a>
-              <a href="#contact" class="btn-secondary"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Contact Me</a>
-              <a href="mailto:solimansultan59@gmail.com?subject=Resume%20Request" class="btn-secondary"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> Request Resume</a>
-            </div>
-            <div class="hero-enter flex items-center gap-4">
-              <a href="https://www.linkedin.com/in/soliman-alktaifan-9b6538281-9b6538281/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1a2332] border border-[#1e293b] text-[#94a3b8] hover:text-[#06b6d4] hover:border-[#06b6d4] transition-all" aria-label="LinkedIn"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-              <a href="https://github.com/iiCiel" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1a2332] border border-[#1e293b] text-[#94a3b8] hover:text-[#06b6d4] hover:border-[#06b6d4] transition-all" aria-label="GitHub"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-              <a href="mailto:solimansultan59@gmail.com" class="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1a2332] border border-[#1e293b] text-[#94a3b8] hover:text-[#06b6d4] hover:border-[#06b6d4] transition-all" aria-label="Email"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
-              <a href="tel:+12342889938" class="w-10 h-10 flex items-center justify-center rounded-lg bg-[#1a2332] border border-[#1e293b] text-[#94a3b8] hover:text-[#06b6d4] hover:border-[#06b6d4] transition-all" aria-label="Phone"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></a>
+        <div class="portrait-stage" aria-label="Portrait and portfolio status">
+          <div class="portrait-card" data-tilt-card>
+            <img src="assets/soliman.jpg" alt="Portrait of Soliman Alktaifan">
+            <div class="portrait-glass">
+              <span class="status-dot"></span>
+              Open to internships
             </div>
           </div>
-          <!-- Terminal -->
-          <div class="hidden lg:flex justify-center hero-enter" style="animation-delay:0.5s">
-            <div class="terminal-texture rounded-2xl p-6 w-full max-w-md">
-              <div class="flex items-center gap-2 mb-4">
-                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-                <span class="ml-4 text-[#94a3b8] text-sm font-mono">soliman@security:~$</span>
-              </div>
-              <div id="terminal-output" class="font-mono text-sm space-y-1.5 min-h-[220px]"></div>
+          <div class="signal-panel" aria-label="Portfolio highlights">
+            <div>
+              <strong>4.0</strong>
+              <span>GPA</span>
+            </div>
+            <div>
+              <strong>2027</strong>
+              <span>BS Cybersecurity</span>
+            </div>
+            <div>
+              <strong>Arabic</strong>
+              <span>Native fluency</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- About -->
-    <section id="about" class="py-24 bg-[#111827] relative z-10 overflow-hidden">
-      <!-- Minecraft decorative elements -->
-      <div class="mc-grass-border" aria-hidden="true" style="background: repeating-linear-gradient(90deg, #5B8731 0px, #5B8731 14px, #4a7228 14px, #4a7228 16px); background-size: 16px 16px;"></div>
-      <!-- Steve running -->
-      <svg class="mc-element mc-steve" style="width:32px;height:48px;" aria-hidden="true" viewBox="0 0 16 24"><rect x="4" y="0" width="8" height="8" fill="#6B4226"/><rect x="4" y="2" width="8" height="6" fill="#C6956E"/><rect x="5" y="3" width="2" height="2" fill="#fff"/><rect x="9" y="3" width="2" height="2" fill="#fff"/><rect x="4" y="8" width="8" height="8" fill="#3B5DC9"/><rect x="3" y="8" width="1" height="7" fill="#C6956E"/><rect x="12" y="8" width="1" height="7" fill="#C6956E"/><rect x="4" y="16" width="3" height="8" fill="#2B3FB3"/><rect x="9" y="16" width="3" height="8" fill="#2B3FB3"/></svg>
-      <!-- Trees -->
-      <svg class="mc-element mc-tree" style="left:8%;width:40px;height:64px;opacity:0.1 !important;" aria-hidden="true" viewBox="0 0 20 32"><rect x="8" y="16" width="4" height="16" fill="#6B4226"/><rect x="2" y="4" width="16" height="14" fill="#2d7a1e" rx="1"/><rect x="4" y="0" width="12" height="6" fill="#2d7a1e" rx="1"/></svg>
-      <svg class="mc-element mc-tree" style="right:12%;width:36px;height:56px;opacity:0.08 !important;" aria-hidden="true" viewBox="0 0 20 32"><rect x="8" y="16" width="4" height="16" fill="#6B4226"/><rect x="2" y="4" width="16" height="14" fill="#2d7a1e" rx="1"/><rect x="4" y="0" width="12" height="6" fill="#2d7a1e" rx="1"/></svg>
-      <!-- Village house -->
-      <svg class="mc-element mc-house" style="right:4%;width:60px;height:48px;opacity:0.09 !important;" aria-hidden="true" viewBox="0 0 30 24"><polygon points="15,0 0,10 30,10" fill="#5C4033"/><rect x="2" y="10" width="26" height="14" fill="#C4A882"/><rect x="4" y="12" width="6" height="6" fill="#87CEEB" opacity="0.5"/><rect x="12" y="16" width="6" height="8" fill="#6B4226"/></svg>
-      <!-- Floating blocks -->
-      <div class="mc-element mc-block-float" style="top:20%;right:25%;opacity:0.06 !important;"><svg width="12" height="12" viewBox="0 0 12 12"><rect width="12" height="12" fill="#8B6914" rx="1"/><rect x="2" y="2" width="3" height="3" fill="#7a5c10" rx="0.5"/><rect x="7" y="7" width="3" height="3" fill="#7a5c10" rx="0.5"/></svg></div>
-      <div class="mc-element mc-block-float" style="top:50%;left:8%;opacity:0.05 !important;animation-delay:2s;"><svg width="10" height="10" viewBox="0 0 10 10"><rect width="10" height="10" fill="#7F7F7F" rx="1"/><rect x="2" y="3" width="2" height="2" fill="#6a6a6a"/><rect x="6" y="6" width="2" height="2" fill="#6a6a6a"/></svg></div>
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="section-title reveal">About Me</h2>
-        <p class="text-[#94a3b8] mb-8 max-w-xl reveal">Building security skills through hands-on projects and continuous learning.</p>
-        <div class="grid lg:grid-cols-3 gap-8">
-          <div class="lg:col-span-2 reveal">
-            <p class="text-lg text-[#94a3b8] leading-relaxed mb-6">I'm a Cybersecurity B.S. student at the University of Akron with a 4.0 GPA, combining rigorous academic study with hands-on networking and security labs. Currently, I'm building an on-prem AI information kiosk for the College of Business while maintaining practical troubleshooting experience from my IT background. As a founding leader in my university's digital forensics and incident response community, I'm committed to growing the next generation of security professionals.</p>
-            <div class="card mb-6">
-              <h3 class="text-[#06b6d4] font-semibold mb-2 text-sm uppercase tracking-wider">Education</h3>
-              <p class="text-[#f1f5f9] font-bold text-lg">University of Akron</p>
-              <p class="text-[#94a3b8]">B.S. Cybersecurity &mdash; GPA 4.0/4.0 &mdash; President's List</p>
-              <p class="text-[#94a3b8] text-sm mt-1">Aug 2024 &ndash; May 2027</p>
-              <p class="text-[#94a3b8] text-sm mt-2"><strong class="text-[#f1f5f9]">Relevant Coursework:</strong> Network Security, Digital Forensics, Operating Systems, Cisco Networking</p>
-            </div>
-            <div class="terminal-texture rounded-xl p-6">
-              <h3 class="text-[#06b6d4] font-semibold mb-4 flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> What I'm Focused On</h3>
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3 text-[#94a3b8]"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Security automation with Python + Linux</li>
-                <li class="flex items-start gap-3 text-[#94a3b8]"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Network defense + DNS/traffic analysis</li>
-                <li class="flex items-start gap-3 text-[#94a3b8]"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Cloud security fundamentals (AWS IAM/SG/S3/EC2)</li>
-                <li class="flex items-start gap-3 text-[#94a3b8]"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Building documented, reproducible projects</li>
-              </ul>
-            </div>
+        <aside class="social-rail" aria-label="Social links">
+          <a href="https://github.com/iiCiel" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/soliman-alktaifan" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:solimansultan59@gmail.com">Email</a>
+        </aside>
+      </section>
+
+      <section class="tool-strip" aria-labelledby="tool-strip-title">
+        <h2 id="tool-strip-title" class="visually-hidden">Tools and preview work</h2>
+        <div class="tool-icons" aria-label="Core tools">
+          <span>Py</span>
+          <span>TS</span>
+          <span>Linux</span>
+          <span>SQL</span>
+          <span>Splunk</span>
+          <span>Wire</span>
+        </div>
+        <div class="preview-wall" aria-label="Portfolio preview tiles">
+          <div class="preview-tile wide">
+            <span></span>
+            <strong>SOC alert triage</strong>
           </div>
-          <div class="space-y-6 reveal">
-            <div class="card"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-xl bg-[#06b6d4]/10 flex items-center justify-center"><svg class="w-6 h-6 text-[#06b6d4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div><div><p class="text-3xl font-bold text-[#06b6d4] counter" data-target="4.0" data-decimal="true">0</p><p class="text-sm text-[#94a3b8]">GPA</p></div></div></div>
-            <div class="card"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-xl bg-[#06b6d4]/10 flex items-center justify-center"><svg class="w-6 h-6 text-[#06b6d4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div><div><p class="text-lg font-bold text-[#f1f5f9]">May 2027</p><p class="text-sm text-[#94a3b8]">Expected Graduation</p></div></div></div>
-            <div class="card"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-xl bg-[#06b6d4]/10 flex items-center justify-center"><svg class="w-6 h-6 text-[#06b6d4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div><div><p class="text-lg font-bold text-[#f1f5f9] counter" data-target="15" data-suffix="+">0</p><p class="text-sm text-[#94a3b8]">HTCIA Chapter Members</p></div></div></div>
-            <div class="card"><div class="flex items-center gap-3"><div class="w-12 h-12 rounded-xl bg-[#06b6d4]/10 flex items-center justify-center"><svg class="w-6 h-6 text-[#06b6d4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><div><p class="text-lg font-bold text-[#f1f5f9] counter" data-target="45" data-suffix="+">0</p><p class="text-sm text-[#94a3b8]">Support Tickets Resolved</p></div></div></div>
+          <div class="preview-tile">
+            <span></span>
+            <strong>HackLab Coach</strong>
+          </div>
+          <div class="preview-tile">
+            <span></span>
+            <strong>Packet evidence</strong>
+          </div>
+          <div class="preview-tile">
+            <span></span>
+            <strong>Daily Mood App</strong>
+          </div>
+          <div class="preview-tile wide">
+            <span></span>
+            <strong>Incident report</strong>
+          </div>
+          <div class="preview-tile">
+            <span></span>
+            <strong>Support notes</strong>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Best Skill — Pokemon Theme -->
-    <section id="best-skill" class="relative z-10 overflow-hidden" style="min-height:100vh;display:flex;align-items:center;padding:6rem 0;">
-      <!-- Floating pokeballs background -->
-      <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <svg class="pokeball-float absolute poke-bg-ball" style="top:8%;left:5%;width:80px;height:80px;opacity:0.08;animation:pokeFloat 8s ease-in-out infinite" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" stroke-width="4"/><line x1="2" y1="50" x2="38" y2="50" stroke-width="4"/><line x1="62" y1="50" x2="98" y2="50" stroke-width="4"/><circle cx="50" cy="50" r="14" stroke-width="4"/><circle class="poke-bg-ball-fill" cx="50" cy="50" r="6"/></svg>
-        <svg class="pokeball-float absolute poke-bg-ball" style="top:55%;right:6%;width:100px;height:100px;opacity:0.06;animation:pokeFloat 10s ease-in-out 2s infinite" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" stroke-width="4"/><line x1="2" y1="50" x2="38" y2="50" stroke-width="4"/><line x1="62" y1="50" x2="98" y2="50" stroke-width="4"/><circle cx="50" cy="50" r="14" stroke-width="4"/><circle class="poke-bg-ball-fill" cx="50" cy="50" r="6"/></svg>
-        <svg class="pokeball-float absolute poke-bg-ball" style="top:25%;right:15%;width:50px;height:50px;opacity:0.07;animation:pokeFloat 7s ease-in-out 4s infinite" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" stroke-width="4"/><line x1="2" y1="50" x2="38" y2="50" stroke-width="4"/><line x1="62" y1="50" x2="98" y2="50" stroke-width="4"/><circle cx="50" cy="50" r="14" stroke-width="4"/><circle class="poke-bg-ball-fill" cx="50" cy="50" r="6"/></svg>
-        <svg class="pokeball-float absolute poke-bg-ball" style="bottom:10%;left:12%;width:70px;height:70px;opacity:0.07;animation:pokeFloat 9s ease-in-out 1s infinite" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" stroke-width="4"/><line x1="2" y1="50" x2="38" y2="50" stroke-width="4"/><line x1="62" y1="50" x2="98" y2="50" stroke-width="4"/><circle cx="50" cy="50" r="14" stroke-width="4"/><circle class="poke-bg-ball-fill" cx="50" cy="50" r="6"/></svg>
-        <svg class="pokeball-float absolute poke-bg-ball" style="top:75%;left:50%;width:60px;height:60px;opacity:0.05;animation:pokeFloat 11s ease-in-out 3s infinite" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" stroke-width="4"/><line x1="2" y1="50" x2="38" y2="50" stroke-width="4"/><line x1="62" y1="50" x2="98" y2="50" stroke-width="4"/><circle cx="50" cy="50" r="14" stroke-width="4"/><circle class="poke-bg-ball-fill" cx="50" cy="50" r="6"/></svg>
-      </div>
-
-      <!-- Pokeball throw-in element -->
-      <div id="pokeball-throw" class="pokeball-hero" aria-hidden="true">
-        <svg width="120" height="120" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="48" fill="#ef4444" stroke="#1a1a2e" stroke-width="3"/>
-          <rect x="0" y="48" width="100" height="52" rx="0" fill="#f1f5f9"/>
-          <circle cx="50" cy="50" r="48" fill="none" stroke="#1a1a2e" stroke-width="3"/>
-          <line x1="2" y1="50" x2="36" y2="50" stroke="#1a1a2e" stroke-width="3"/>
-          <line x1="64" y1="50" x2="98" y2="50" stroke="#1a1a2e" stroke-width="3"/>
-          <circle cx="50" cy="50" r="16" fill="#f1f5f9" stroke="#1a1a2e" stroke-width="3"/>
-          <circle cx="50" cy="50" r="8" fill="#f1f5f9" stroke="#1a1a2e" stroke-width="2"/>
-        </svg>
-        <div class="star-burst" id="star-burst"></div>
-      </div>
-
-      <div class="max-w-6xl mx-auto px-6 relative z-10 w-full">
-        <!-- Top area: big pokeball + title -->
-        <div class="text-center mb-16" style="padding-top:2rem;">
-          <p class="poke-subtitle text-[#06b6d4] font-mono text-base md:text-lg uppercase tracking-[0.3em] mb-6 reveal" style="transition:color 0.8s ease;">My #1 Skill</p>
-          <h2 class="poke-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-8 leading-[0.95] reveal" style="background:linear-gradient(135deg,#f1f5f9 0%,#06b6d4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;transition:all 0.8s ease;">Willingness<br>to Learn</h2>
-          <p class="poke-tagline text-xl sm:text-2xl md:text-3xl text-[#94a3b8] max-w-3xl mx-auto mb-4 reveal" style="transition:color 0.8s ease;">I collect skills like I collect Pok&eacute;mon &mdash;</p>
-          <p class="poke-tagline-bold text-2xl sm:text-3xl md:text-4xl font-bold text-[#f1f5f9] reveal" style="transition:color 0.8s ease;">gotta catch &rsquo;em all.</p>
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="shape sticker-star" aria-hidden="true"></div>
+        <div class="shape sticker-heart" aria-hidden="true"></div>
+        <div class="shape sticker-cube" aria-hidden="true"></div>
+        <div class="shape sticker-flower" aria-hidden="true"></div>
+        <div class="section-heading">
+          <p class="eyebrow">About me</p>
+          <h2 id="about-title">Security-minded builder with support habits.</h2>
         </div>
-        <!-- Skill "Pokedex" cards -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto mb-12">
-          <div class="pokedex-card reveal">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="pokedex-number">#001</span>
-              <span class="poke-skill-name text-[#f1f5f9] font-bold" style="transition:color 0.4s ease;">Networking</span>
-              <span class="ml-auto pokedex-type" style="background:rgba(96,165,250,0.15);color:#60a5fa;">Water</span>
-            </div>
-            <div class="pokedex-bar"><div class="pokedex-bar-fill" style="width:85%"></div></div>
-            <p class="poke-skill-desc text-xs text-[#94a3b8] mt-1" style="transition:color 0.4s ease;">Cisco, VLANs, OSPF, TCP/IP</p>
-          </div>
-          <div class="pokedex-card reveal">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="pokedex-number">#002</span>
-              <span class="poke-skill-name text-[#f1f5f9] font-bold" style="transition:color 0.4s ease;">Security</span>
-              <span class="ml-auto pokedex-type" style="background:rgba(239,68,68,0.15);color:#ef4444;">Fire</span>
-            </div>
-            <div class="pokedex-bar"><div class="pokedex-bar-fill" style="width:75%;background:linear-gradient(90deg,#ef4444,#f97316)"></div></div>
-            <p class="poke-skill-desc text-xs text-[#94a3b8] mt-1" style="transition:color 0.4s ease;">Wireshark, Nmap, Burp Suite</p>
-          </div>
-          <div class="pokedex-card reveal">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="pokedex-number">#003</span>
-              <span class="poke-skill-name text-[#f1f5f9] font-bold" style="transition:color 0.4s ease;">Python</span>
-              <span class="ml-auto pokedex-type" style="background:rgba(74,222,128,0.15);color:#4ade80;">Grass</span>
-            </div>
-            <div class="pokedex-bar"><div class="pokedex-bar-fill" style="width:80%;background:linear-gradient(90deg,#4ade80,#22d3ee)"></div></div>
-            <p class="poke-skill-desc text-xs text-[#94a3b8] mt-1" style="transition:color 0.4s ease;">Automation, scripting, tools</p>
-          </div>
-          <div class="pokedex-card reveal">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="pokedex-number">#004</span>
-              <span class="poke-skill-name text-[#f1f5f9] font-bold" style="transition:color 0.4s ease;">Cloud</span>
-              <span class="ml-auto pokedex-type" style="background:rgba(168,85,247,0.15);color:#a855f7;">Psychic</span>
-            </div>
-            <div class="pokedex-bar"><div class="pokedex-bar-fill" style="width:65%;background:linear-gradient(90deg,#a855f7,#ec4899)"></div></div>
-            <p class="poke-skill-desc text-xs text-[#94a3b8] mt-1" style="transition:color 0.4s ease;">AWS, IAM, EC2, S3, Docker</p>
-          </div>
-          <div class="pokedex-card reveal">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="pokedex-number">#005</span>
-              <span class="poke-skill-name text-[#f1f5f9] font-bold" style="transition:color 0.4s ease;">Linux</span>
-              <span class="ml-auto pokedex-type" style="background:rgba(251,191,36,0.15);color:#fbbf24;">Electric</span>
-            </div>
-            <div class="pokedex-bar"><div class="pokedex-bar-fill" style="width:80%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div>
-            <p class="poke-skill-desc text-xs text-[#94a3b8] mt-1" style="transition:color 0.4s ease;">Bash, sysadmin, hardening</p>
-          </div>
-          <div class="pokedex-card reveal" style="border-style:dashed;border-color:rgba(6,182,212,0.3);">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="pokedex-number">???</span>
-              <span class="poke-skill-name text-[#94a3b8] font-bold" style="transition:color 0.4s ease;">Next Catch</span>
-              <span class="ml-auto pokedex-type" style="background:rgba(6,182,212,0.15);color:#06b6d4;">???</span>
-            </div>
-            <div class="pokedex-bar"><div class="pokedex-bar-fill" style="width:0%;animation:barGrow 2s ease forwards 1s"></div></div>
-            <p class="poke-skill-desc text-xs text-[#06b6d4] mt-1">Always hunting for new skills...</p>
-          </div>
-        </div>
-        <p class="poke-footer text-center text-[#94a3b8] reveal font-mono text-sm" style="transition:color 0.8s ease;"><span class="text-[#06b6d4]" style="transition:color 0.8s ease;">5</span> caught &middot; <span class="text-[#06b6d4]" style="transition:color 0.8s ease;">&infin;</span> to go &middot; <span class="text-[#f1f5f9]" style="transition:color 0.8s ease;">journey never stops</span></p>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="py-24 bg-[#0a0f1a] relative z-10 overflow-hidden">
-      <!-- Pac-Man decorative elements -->
-      <div class="pac-element pac-dots" aria-hidden="true"></div>
-      <!-- Pac-Man moving across -->
-      <svg class="pac-element" style="bottom:14%;opacity:0.2;animation:pacMove 14s linear infinite;position:absolute;" width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2A18 18 0 1 1 20 38A18 18 0 1 1 20 2" fill="#FFFF00"/><polygon points="20,20 38,10 38,30" fill="#000"/></svg>
-      <!-- Maze border lines top/bottom -->
-      <div class="pac-element" style="top:0;left:5%;right:5%;height:3px;background:#2121DE;box-shadow:0 4px 0 #000,0 7px 0 #2121DE;opacity:0.3;position:absolute;" aria-hidden="true"></div>
-      <div class="pac-element" style="bottom:0;left:5%;right:5%;height:3px;background:#2121DE;box-shadow:0 -4px 0 #000,0 -7px 0 #2121DE;opacity:0.3;position:absolute;" aria-hidden="true"></div>
-      <div class="max-w-6xl mx-auto px-6 relative z-10">
-        <p class="pac-score text-center mb-2 reveal" aria-hidden="true">HIGH SCORE: 4 PROJECTS &nbsp;&nbsp; 1UP</p>
-        <h2 class="section-title reveal">Featured Projects</h2>
-        <p class="text-[#94a3b8] mb-12 max-w-xl reveal">Hands-on security projects demonstrating practical skills and real-world problem solving.</p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="card glow-border reveal">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#06b6d4] to-[#0891b2] flex items-center justify-center"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-              <span class="px-3 py-1 text-xs font-medium bg-green-500/10 text-green-400 rounded-full">In Progress</span>
-            </div>
-            <h3 class="text-xl font-bold text-[#f1f5f9] mb-2">On-Prem AI Information Kiosk</h3>
-            <p class="text-[#06b6d4] text-sm font-medium mb-3">University of Akron &mdash; College of Business</p>
-            <p class="text-[#94a3b8] text-sm mb-4">Developing an AI-powered kiosk serving 2,000+ students with intelligent search/retrieval across multiple document types.</p>
-            <div class="flex flex-wrap gap-2 mb-4"><span class="skill-tag">Python</span><span class="skill-tag">QML</span><span class="skill-tag">Git/GitHub</span></div>
-            <ul class="space-y-2 text-sm text-[#94a3b8]">
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Built search/retrieval across multiple document types</li>
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Collaborated in 10-person development team</li>
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Standardized GitHub workflow with PR templates &amp; branch protection</li>
-            </ul>
-          </div>
-          <div class="card glow-border reveal">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#06b6d4] to-[#0891b2] flex items-center justify-center"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div>
-              <span class="px-3 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full">Completed</span>
-            </div>
-            <h3 class="text-xl font-bold text-[#f1f5f9] mb-2">Cisco Network Labs</h3>
-            <p class="text-[#06b6d4] text-sm font-medium mb-3">Packet Tracer Simulations</p>
-            <p class="text-[#94a3b8] text-sm mb-4">Designed and configured enterprise network topologies with VLANs, routing protocols, and DHCP services.</p>
-            <div class="flex flex-wrap gap-2 mb-4"><span class="skill-tag">VLANs</span><span class="skill-tag">Inter-VLAN Routing</span><span class="skill-tag">OSPF</span><span class="skill-tag">DHCP/DHCPv6</span></div>
-            <ul class="space-y-2 text-sm text-[#94a3b8]">
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Designed multi-router/switch topologies</li>
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Validated routing and network segmentation</li>
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Documented all configurations thoroughly</li>
-            </ul>
-          </div>
-          <div class="card glow-border reveal">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#06b6d4] to-[#0891b2] flex items-center justify-center"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div>
-              <span class="px-3 py-1 text-xs font-medium bg-blue-500/10 text-blue-400 rounded-full">Completed</span>
-            </div>
-            <h3 class="text-xl font-bold text-[#f1f5f9] mb-2">Three-Card Poker Game</h3>
-            <p class="text-[#06b6d4] text-sm font-medium mb-3">Team Lead &mdash; Software Engineering Course</p>
-            <p class="text-[#94a3b8] text-sm mb-4">Led development of a complete poker game with hand evaluation, dealer logic, and betting mechanics.</p>
-            <div class="flex flex-wrap gap-2 mb-4"><span class="skill-tag">C++</span><span class="skill-tag">GitHub Issues</span></div>
-            <ul class="space-y-2 text-sm text-[#94a3b8]">
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Implemented hand evaluation + dealer logic + betting</li>
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Coordinated 5-person team; delivered early</li>
-              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Created comprehensive edge-case tests</li>
-            </ul>
-          </div>
-          <div class="card border-dashed border-2 border-[#1e293b] bg-transparent reveal">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-12 h-12 rounded-xl bg-[#1e293b] flex items-center justify-center"><svg class="w-6 h-6 text-[#94a3b8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg></div>
-              <span class="px-3 py-1 text-xs font-medium bg-[#1e293b] text-[#94a3b8] rounded-full">Coming Soon</span>
-            </div>
-            <h3 class="text-xl font-bold text-[#f1f5f9] mb-4">More Projects In Progress</h3>
-            <ul class="space-y-3">
-              <li class="flex items-center gap-3 text-[#94a3b8]"><svg class="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg> PCAP Triage Script</li>
-              <li class="flex items-center gap-3 text-[#94a3b8]"><svg class="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg> AWS Security Audit Checklist/CLI</li>
-              <li class="flex items-center gap-3 text-[#94a3b8]"><svg class="w-5 h-5 text-[#06b6d4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg> Burp Suite Lab Notes</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="py-24 bg-[#111827] relative z-10 overflow-hidden">
-      <!-- Zelda decorative elements -->
-      <svg class="zelda-element" style="top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:260px;opacity:0.04 !important;position:absolute;" aria-hidden="true" viewBox="0 0 200 180"><polygon points="100,0 50,87 150,87" fill="#C8A82E"/><polygon points="50,87 0,174 100,174" fill="#C8A82E"/><polygon points="150,87 100,174 200,174" fill="#C8A82E"/></svg>
-      <!-- Navi fairy -->
-      <div class="zelda-element zelda-navi" style="top:15%;right:20%;opacity:0.6 !important;position:absolute;" aria-hidden="true"></div>
-      <!-- Master Sword along left side -->
-      <svg class="zelda-element zelda-sword-bg" style="top:20%;left:2%;width:24px;height:200px;opacity:0.08 !important;position:absolute;" aria-hidden="true" viewBox="0 0 30 200"><polygon points="15,0 10,120 20,120" fill="#A8B8C8"/><rect x="5" y="118" width="20" height="6" rx="2" fill="#C8A82E"/><rect x="10" y="124" width="10" height="35" rx="3" fill="#6B2FA0"/><circle cx="15" cy="166" r="6" fill="#C8A82E"/></svg>
-      <div class="max-w-6xl mx-auto px-6 relative z-10">
-        <h2 class="section-title reveal">Experience</h2>
-        <p class="text-[#94a3b8] mb-12 max-w-xl reveal">Professional experience in software development and IT infrastructure.</p>
-        <div class="space-y-8">
-          <div class="timeline-item reveal">
-            <div class="card ml-4">
-              <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
-                <div><h3 class="text-xl font-bold text-[#f1f5f9]">Software Development Student Assistant</h3><p class="text-[#06b6d4] font-medium">University of Akron</p></div>
-                <span class="px-3 py-1 text-xs font-medium bg-green-500/10 text-green-400 rounded-full whitespace-nowrap">Aug 2025 &ndash; Present</span>
-              </div>
-              <ul class="space-y-3 text-[#94a3b8]">
-                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Building on-prem AI kiosk serving <span class="text-[#06b6d4] font-medium">2,000+ students</span> in the College of Business</li>
-                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Implemented search/retrieval features across multiple document formats</li>
-                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Resolved <span class="text-[#06b6d4] font-medium">45+ support tickets</span> within 24-hour SLA</li>
-                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Improved team GitHub workflow with PR templates, branch protection, and commit conventions</li>
-              </ul>
-            </div>
-          </div>
-          <div class="timeline-item reveal">
-            <div class="card ml-4">
-              <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
-                <div><h3 class="text-xl font-bold text-[#f1f5f9]">IT Technician</h3><p class="text-[#06b6d4] font-medium">Construction and Development LTD, Riyadh</p></div>
-                <span class="px-3 py-1 text-xs font-medium bg-[#1e293b] text-[#94a3b8] rounded-full whitespace-nowrap">Jun 2022 &ndash; Aug 2023</span>
-              </div>
-              <ul class="space-y-3 text-[#94a3b8]">
-                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Managed IT infrastructure for <span class="text-[#06b6d4] font-medium">15-person office</span></li>
-                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Executed server migration with <span class="text-[#06b6d4] font-medium">zero data loss</span> and <span class="text-[#06b6d4] font-medium">&lt;24h downtime</span></li>
-                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Reduced recurring issues through root-cause analysis and documentation</li>
-                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-[#06b6d4] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Supported SAMA compliance audit preparation</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="py-24 bg-[#0a0f1a] relative z-10 overflow-hidden">
-      <!-- Tetris falling pieces -->
-      <svg class="tetris-element" style="left:10%;top:0;width:30px;height:30px;position:absolute;animation:tetrisFall 10s linear infinite;opacity:0.08 !important;" aria-hidden="true" viewBox="0 0 40 10"><rect x="0" y="0" width="9" height="9" fill="#00F0F0" rx="1"/><rect x="10" y="0" width="9" height="9" fill="#00F0F0" rx="1"/><rect x="20" y="0" width="9" height="9" fill="#00F0F0" rx="1"/><rect x="30" y="0" width="9" height="9" fill="#00F0F0" rx="1"/></svg>
-      <svg class="tetris-element" style="left:55%;top:0;width:20px;height:20px;position:absolute;animation:tetrisFall 13s linear 3s infinite;opacity:0.07 !important;" aria-hidden="true" viewBox="0 0 30 20"><rect x="0" y="0" width="9" height="9" fill="#A000F0" rx="1"/><rect x="0" y="10" width="9" height="9" fill="#A000F0" rx="1"/><rect x="10" y="10" width="9" height="9" fill="#A000F0" rx="1"/><rect x="20" y="10" width="9" height="9" fill="#A000F0" rx="1"/></svg>
-      <svg class="tetris-element" style="right:15%;top:0;width:20px;height:20px;position:absolute;animation:tetrisFall 11s linear 6s infinite;opacity:0.06 !important;" aria-hidden="true" viewBox="0 0 20 20"><rect x="0" y="0" width="9" height="9" fill="#F0F000" rx="1"/><rect x="10" y="0" width="9" height="9" fill="#F0F000" rx="1"/><rect x="0" y="10" width="9" height="9" fill="#F0F000" rx="1"/><rect x="10" y="10" width="9" height="9" fill="#F0F000" rx="1"/></svg>
-      <div class="max-w-6xl mx-auto px-6 relative z-10">
-        <p class="tetris-score text-center mb-2 reveal" aria-hidden="true">LEVEL 06 &nbsp;|&nbsp; LINES: 42 &nbsp;|&nbsp; SCORE: 99999</p>
-        <h2 class="section-title reveal">Skills</h2>
-        <p class="text-[#94a3b8] mb-12 max-w-xl reveal">Technical skills developed through coursework, projects, and professional experience.</p>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="card reveal"><div class="flex items-center gap-3 mb-4"><div class="skill-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><h3 class="text-lg font-bold text-[#f1f5f9]">Languages</h3></div><div class="flex flex-wrap gap-2"><span class="skill-tag">Python</span><span class="skill-tag">C#</span><span class="skill-tag">C++</span><span class="skill-tag">Bash</span><span class="skill-tag">SQL</span><span class="skill-tag">QML</span></div></div>
-          <div class="card reveal"><div class="flex items-center gap-3 mb-4"><div class="skill-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><h3 class="text-lg font-bold text-[#f1f5f9]">Security Tools</h3></div><div class="flex flex-wrap gap-2"><span class="skill-tag">Wireshark</span><span class="skill-tag">Nmap</span><span class="skill-tag">Burp Suite</span><span class="skill-tag">TryHackMe</span></div></div>
-          <div class="card reveal"><div class="flex items-center gap-3 mb-4"><div class="skill-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div><h3 class="text-lg font-bold text-[#f1f5f9]">Networking</h3></div><div class="flex flex-wrap gap-2"><span class="skill-tag">Cisco IOS</span><span class="skill-tag">VLANs</span><span class="skill-tag">OSPF</span><span class="skill-tag">TCP/IP</span><span class="skill-tag">DNS</span><span class="skill-tag">DHCP</span></div></div>
-          <div class="card reveal"><div class="flex items-center gap-3 mb-4"><div class="skill-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></div><h3 class="text-lg font-bold text-[#f1f5f9]">Cloud &amp; Infrastructure</h3></div><div class="flex flex-wrap gap-2"><span class="skill-tag">AWS</span><span class="skill-tag">EC2</span><span class="skill-tag">S3</span><span class="skill-tag">IAM</span><span class="skill-tag">Linux</span><span class="skill-tag">Docker</span></div></div>
-          <div class="card reveal"><div class="flex items-center gap-3 mb-4"><div class="skill-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div><h3 class="text-lg font-bold text-[#f1f5f9]">Development</h3></div><div class="flex flex-wrap gap-2"><span class="skill-tag">Git/GitHub</span><span class="skill-tag">VS Code</span><span class="skill-tag">CI/CD</span><span class="skill-tag">Agile</span></div></div>
-          <div class="card reveal"><div class="flex items-center gap-3 mb-4"><div class="skill-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div><h3 class="text-lg font-bold text-[#f1f5f9]">Soft Skills</h3></div><div class="flex flex-wrap gap-2"><span class="skill-tag">Team Leadership</span><span class="skill-tag">Documentation</span><span class="skill-tag">Troubleshooting</span><span class="skill-tag">Communication</span></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Certifications -->
-    <section id="certifications" class="py-24 bg-[#111827] relative z-10 overflow-hidden">
-      <!-- Mario decorative elements -->
-      <!-- Clouds -->
-      <svg class="mario-element mario-cloud" style="top:8%;opacity:0.08 !important;position:absolute;" width="64" height="28" viewBox="0 0 64 28" aria-hidden="true"><ellipse cx="20" cy="18" rx="18" ry="10" fill="white"/><ellipse cx="40" cy="14" rx="16" ry="12" fill="white"/><ellipse cx="32" cy="20" rx="20" ry="8" fill="white"/></svg>
-      <svg class="mario-element mario-cloud" style="top:15%;opacity:0.06 !important;position:absolute;animation-delay:12s;" width="48" height="22" viewBox="0 0 48 22" aria-hidden="true"><ellipse cx="16" cy="14" rx="14" ry="8" fill="white"/><ellipse cx="30" cy="10" rx="12" ry="10" fill="white"/><ellipse cx="24" cy="16" rx="16" ry="6" fill="white"/></svg>
-      <!-- Coins -->
-      <svg class="mario-element mario-coin" style="top:25%;left:8%;opacity:0.12 !important;position:absolute;" width="16" height="20" viewBox="0 0 16 20" aria-hidden="true"><ellipse cx="8" cy="10" rx="7" ry="9" fill="#F8D830" stroke="#C88000" stroke-width="1"/></svg>
-      <svg class="mario-element mario-coin" style="top:40%;right:10%;opacity:0.1 !important;position:absolute;animation-delay:0.5s;" width="16" height="20" viewBox="0 0 16 20" aria-hidden="true"><ellipse cx="8" cy="10" rx="7" ry="9" fill="#F8D830" stroke="#C88000" stroke-width="1"/></svg>
-      <!-- Pipe -->
-      <svg class="mario-element" style="bottom:0;left:3%;opacity:0.1 !important;position:absolute;" width="40" height="50" viewBox="0 0 40 50" aria-hidden="true"><rect x="0" y="0" width="40" height="12" rx="2" fill="#00A800" stroke="#006400" stroke-width="1"/><rect x="4" y="12" width="32" height="38" fill="#00A800" stroke="#006400" stroke-width="1"/></svg>
-      <svg class="mario-element" style="bottom:0;right:3%;opacity:0.1 !important;position:absolute;" width="40" height="50" viewBox="0 0 40 50" aria-hidden="true"><rect x="0" y="0" width="40" height="12" rx="2" fill="#00A800" stroke="#006400" stroke-width="1"/><rect x="4" y="12" width="32" height="38" fill="#00A800" stroke="#006400" stroke-width="1"/></svg>
-      <div class="max-w-6xl mx-auto px-6 relative z-10">
-        <h2 class="section-title reveal">Certifications &amp; Training</h2>
-        <p class="text-[#94a3b8] mb-12 max-w-xl reveal">Industry certifications and hands-on training platforms.</p>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="cert-badge reveal"><div class="cert-icon">GCP</div><div><p class="font-semibold text-[#f1f5f9]">Google Cybersecurity Professional</p><p class="text-sm text-[#94a3b8]">Certificate</p></div></div>
-          <div class="cert-badge reveal"><div class="cert-icon">CNE</div><div><p class="font-semibold text-[#f1f5f9]">Cisco Networking Essentials</p><p class="text-sm text-[#94a3b8]">2024</p></div></div>
-          <div class="cert-badge reveal"><div class="cert-icon">CIT</div><div><p class="font-semibold text-[#f1f5f9]">Cisco IT Essentials</p><p class="text-sm text-[#94a3b8]">2024</p></div></div>
-          <div class="cert-badge reveal"><div class="cert-icon">THM</div><div><p class="font-semibold text-[#f1f5f9]">TryHackMe: Jr Penetration Tester</p><p class="text-sm text-[#94a3b8]">45+ rooms completed</p></div></div>
-          <div class="cert-badge reveal"><div class="cert-icon">CTF</div><div><p class="font-semibold text-[#f1f5f9]">picoCTF</p><p class="text-sm text-[#94a3b8]">Participant</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Leadership -->
-    <section id="leadership" class="py-24 bg-[#0a0f1a] relative z-10 overflow-hidden">
-      <!-- Dark Souls decorative elements -->
-      <div class="ds-element ds-fog" aria-hidden="true"></div>
-      <div class="ds-area-cleared ds-element" style="font-family:'Space Grotesk',sans-serif;font-weight:300;letter-spacing:0.3em;" aria-hidden="true">AREA CLEARED</div>
-      <!-- Bonfire -->
-      <svg class="ds-element" style="top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:70px;opacity:0.15 !important;position:absolute;" aria-hidden="true" viewBox="0 0 60 80"><line x1="30" y1="78" x2="30" y2="30" stroke="#888" stroke-width="3"/><polygon points="30,28 24,38 36,38" fill="#888"/><line x1="20" y1="48" x2="40" y2="48" stroke="#888" stroke-width="2"/><ellipse class="ds-bonfire-flame" cx="30" cy="28" rx="14" ry="20" fill="#FF6A00" opacity="0.7"/><ellipse class="ds-bonfire-flame" cx="30" cy="24" rx="9" ry="15" fill="#FFD700" opacity="0.5" style="animation-delay:0.3s"/></svg>
-      <!-- Ember particles -->
-      <div class="ds-element ds-ember" style="bottom:40%;left:48%;animation-delay:0s;" aria-hidden="true"></div>
-      <div class="ds-element ds-ember" style="bottom:40%;left:52%;animation-delay:1s;" aria-hidden="true"></div>
-      <div class="ds-element ds-ember" style="bottom:40%;left:50%;animation-delay:2s;" aria-hidden="true"></div>
-      <div class="ds-element ds-ember" style="bottom:40%;left:46%;animation-delay:3s;" aria-hidden="true"></div>
-      <div class="max-w-6xl mx-auto px-6 relative z-10">
-        <h2 class="section-title reveal">Leadership</h2>
-        <p class="text-[#94a3b8] mb-12 max-w-xl reveal">Building communities and competing in security challenges.</p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="card reveal">
-            <div class="flex items-start gap-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#06b6d4] to-[#0891b2] flex items-center justify-center flex-shrink-0"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-              <div><h3 class="text-xl font-bold text-[#f1f5f9]">Founding President &mdash; HTCIA Student Chapter</h3><p class="text-[#06b6d4] text-sm font-medium">Aug 2025 &ndash; Present</p></div>
-            </div>
-            <p class="text-[#94a3b8]">Founded the university's digital forensics and incident response community. Focused on DFIR, OSINT, and hands-on workshops with 15+ active members. Spring 2026 workshops planned.</p>
-          </div>
-          <div class="card reveal">
-            <div class="flex items-start gap-4 mb-4">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#06b6d4] to-[#0891b2] flex items-center justify-center flex-shrink-0"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
-              <div><h3 class="text-xl font-bold text-[#f1f5f9]">CCDC Team Member</h3><p class="text-[#06b6d4] text-sm font-medium">Midwest Regional CCDC</p></div>
-            </div>
-            <p class="text-[#94a3b8]">Defended corporate network operations against red team activity while maintaining service continuity during competition scenarios.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-24 bg-[#111827] relative z-10 overflow-hidden">
-      <!-- Undertale save star -->
-      <svg class="ut-element" style="top:4rem;right:15%;opacity:0.5 !important;position:absolute;animation:shieldPulse 2s ease infinite;" width="24" height="24" viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,0 12.5,7.5 20,7.5 14,12.5 16,20 10,15 4,20 6,12.5 0,7.5 7.5,7.5" fill="#FFFF00"/></svg>
-      <div class="max-w-6xl mx-auto px-6 relative z-10">
-        <h2 class="section-title justify-center reveal">Get In Touch</h2>
-        <div class="max-w-2xl mx-auto">
-          <!-- Terminal-style contact prompt -->
-          <div class="terminal-texture rounded-xl p-6 mb-10 reveal">
-            <div class="flex items-center gap-2 mb-4">
-              <span class="w-3 h-3 rounded-full bg-red-500"></span>
-              <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-              <span class="w-3 h-3 rounded-full bg-green-500"></span>
-              <span class="ml-4 text-[#94a3b8] text-sm font-mono">contact@soliman:~$</span>
-            </div>
-            <div class="font-mono text-sm space-y-2">
-              <p><span class="text-[#06b6d4]">$</span> echo "Let's discuss how I can contribute to your security team — available Summer '26, Fall '26, or Spring '27."</p>
-              <p class="text-[#94a3b8]">Let's discuss how I can contribute to your security team — available Summer '26, Fall '26, or Spring '27.</p>
-              <p><span class="text-[#06b6d4]">$</span> cat contact.txt</p>
-              <p class="text-[#94a3b8]">Email  : solimansultan59@gmail.com</p>
-              <p class="text-[#94a3b8]">Phone  : +1 (234) 288-9938</p>
-              <p class="text-[#94a3b8]">GitHub : <a href="https://github.com/iiCiel" class="text-[#06b6d4] hover:underline" target="_blank">github.com/iiCiel</a></p>
-              <p class="text-[#94a3b8]">LinkedIn: <a href="https://www.linkedin.com/in/soliman-alktaifan-9b6538281/" class="text-[#06b6d4] hover:underline" target="_blank">linkedin.com/in/soliman-alktaifan</a></p>
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            <a href="mailto:solimansultan59@gmail.com" class="card flex flex-col items-center gap-2 text-center reveal" style="text-decoration:none"><svg class="w-6 h-6 text-[#06b6d4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm text-[#94a3b8]">Email</span></a>
-            <a href="tel:+12342889938" class="card flex flex-col items-center gap-2 text-center reveal" style="text-decoration:none"><svg class="w-6 h-6 text-[#06b6d4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span class="text-sm text-[#94a3b8]">Phone</span></a>
-            <a href="https://www.linkedin.com/in/soliman-alktaifan-9b6538281-9b6538281/" target="_blank" rel="noopener noreferrer" class="card flex flex-col items-center gap-2 text-center reveal" style="text-decoration:none"><svg class="w-6 h-6 text-[#06b6d4]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span class="text-sm text-[#94a3b8]">LinkedIn</span></a>
-            <a href="https://github.com/iiCiel" target="_blank" rel="noopener noreferrer" class="card flex flex-col items-center gap-2 text-center reveal" style="text-decoration:none"><svg class="w-6 h-6 text-[#06b6d4]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span class="text-sm text-[#94a3b8]">GitHub</span></a>
-          </div>
-          <div class="flex flex-wrap justify-center gap-4 reveal">
-            <a href="mailto:solimansultan59@gmail.com" class="btn-primary"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Email Me</a>
-            <a href="mailto:solimansultan59@gmail.com?subject=Resume%20Request" class="btn-secondary"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> Request Resume</a>
-          </div>
-          <!-- Undertale determination text -->
-          <p class="ut-determination-text text-center mt-8 font-mono text-sm text-[#94a3b8] reveal" style="opacity:0;transition:opacity 0.8s ease;">
-            <svg class="ut-soul inline-block mr-1 align-middle" width="14" height="14" viewBox="0 0 16 16"><path d="M8 14L2 8V5C2 3 3.5 1.5 5.5 1.5C6.5 1.5 7.5 2 8 3C8.5 2 9.5 1.5 10.5 1.5C12.5 1.5 14 3 14 5V8L8 14Z" fill="#FF0000"/></svg>
-            * Filled with <span class="ut-determination">DETERMINATION</span>.
+        <div class="about-grid">
+          <p>
+            I study cybersecurity at the University of Akron and work across SOC-style analysis, network
+            forensics, technical support, and AI-assisted development. My strongest work combines investigation,
+            documentation, and automation.
+          </p>
+          <p>
+            I have hands-on practice with phishing triage, packet analysis, Splunk searches, Linux tooling,
+            vulnerability scanning, and incident writeups. I also build software projects where the UX makes
+            technical workflows easier to finish.
           </p>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer id="site-footer" class="py-8 bg-[#0a0f1a] border-t border-[#1e293b] relative z-10 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <p class="arcade-blink text-center mb-4" style="opacity:0;transition:opacity 0.8s ease;" aria-hidden="true">INSERT COIN TO CONTINUE</p>
-      <div class="flex flex-wrap justify-between items-center gap-4">
-        <p class="text-[#94a3b8] text-sm">&copy; <span id="footer-year"></span> Soliman Alktaifan. All rights reserved.</p>
-        <p class="text-[#94a3b8] text-sm">Last updated: <span id="last-updated"></span></p>
-      </div>
-    </div>
-  </footer>
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2 id="projects-title">Work that proves the range.</h2>
+        </div>
+        <div class="project-showcase">
+          <article class="project-row">
+            <div class="project-number">01</div>
+            <div class="project-copy">
+              <div class="project-meta">AI security training</div>
+              <h3>HackLab Coach</h3>
+              <p>
+                Socratic coaching, adaptive cyber challenges, rubric grading, and incident report generation.
+              </p>
+              <a href="https://github.com/iiCiel/hacklab-coach" target="_blank" rel="noreferrer">View</a>
+            </div>
+            <div class="project-preview security-preview" aria-hidden="true">
+              <div class="window large"></div>
+              <div class="window side"></div>
+              <div class="window small"></div>
+            </div>
+          </article>
+          <article class="project-row">
+            <div class="project-number">02</div>
+            <div class="project-copy">
+              <div class="project-meta">Full-stack app</div>
+              <h3>Daily Mood App</h3>
+              <p>
+                A clean mood-tracking app built around quick entries, readable history, and practical patterns.
+              </p>
+              <a href="https://github.com/iiCiel/Daily-Mood-App" target="_blank" rel="noreferrer">View</a>
+            </div>
+            <div class="project-preview app-preview" aria-hidden="true">
+              <div class="window large"></div>
+              <div class="window side"></div>
+              <div class="window small"></div>
+            </div>
+          </article>
+          <article class="project-row">
+            <div class="project-number">03</div>
+            <div class="project-copy">
+              <div class="project-meta">Cyber labs</div>
+              <h3>SOC and Forensics Work</h3>
+              <p>
+                Phishing triage, PCAP analysis, Splunk searches, MITRE ATT&CK mapping, and concise reports.
+              </p>
+              <a href="https://github.com/iiCiel" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+            <div class="project-preview lab-preview" aria-hidden="true">
+              <div class="window large"></div>
+              <div class="window side"></div>
+              <div class="window small"></div>
+            </div>
+          </article>
+        </div>
+      </section>
 
-  <script>
-    // Footer dates
-    const now = new Date();
-    document.getElementById('footer-year').textContent = now.getFullYear();
-    document.getElementById('last-updated').textContent = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(now);
+      <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <p class="eyebrow">Stack</p>
+          <h2 id="skills-title">Tools I use to investigate and build.</h2>
+        </div>
+        <div class="skill-cloud" aria-label="Technical skills">
+          <span>Python</span>
+          <span>TypeScript</span>
+          <span>Linux</span>
+          <span>Splunk</span>
+          <span>Wireshark</span>
+          <span>tcpdump</span>
+          <span>Nmap</span>
+          <span>Nessus</span>
+          <span>SQL</span>
+          <span>GitHub</span>
+          <span>Incident reports</span>
+          <span>Technical support</span>
+        </div>
+      </section>
 
-    // Mobile menu
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      const open = !mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden');
-      menuBtn.setAttribute('aria-expanded', String(!open));
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }));
+      <section class="contact-band" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow dark">Contact</p>
+          <h2 id="contact-title">Let's get in touch</h2>
+          <a href="mailto:solimansultan59@gmail.com">solimansultan59@gmail.com</a>
+        </div>
+        <form class="contact-form" action="mailto:solimansultan59@gmail.com" method="post" enctype="text/plain">
+          <label>
+            <span>Name</span>
+            <input name="name" autocomplete="name">
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email">
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="4"></textarea>
+          </label>
+          <button type="submit">Send</button>
+        </form>
+      </section>
 
-    // Navbar shrink on scroll + active nav + back-to-top
-    const siteNav = document.getElementById('site-nav');
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      siteNav.classList.toggle('scrolled', scrollY > 50);
-      backToTop.classList.toggle('visible', scrollY > 600);
-      const offset = scrollY + 120;
-      sections.forEach(section => {
-        const top = section.offsetTop, height = section.offsetHeight, id = section.getAttribute('id');
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === '#' + id) {
-            link.classList.toggle('active', offset >= top && offset < top + height);
-          }
-        });
-      });
-    });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      <footer class="site-footer">
+        <div class="footer-name">Soliman Alktaifan</div>
+        <div class="footer-links">
+          <a href="https://github.com/iiCiel" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/soliman-alktaifan" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="assets/Soliman_Alktaifan_Resume.pdf" download>Resume</a>
+        </div>
+        <div class="footer-shapes" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </footer>
+    </main>
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Animated counters
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = parseFloat(el.dataset.target);
-        const suffix = el.dataset.suffix || '';
-        const isDecimal = el.dataset.decimal === 'true';
-        const duration = 1500;
-        const start = performance.now();
-        function tick(now) {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const current = eased * target;
-          el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
-          if (progress < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-        counterObserver.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-
-    // Pokemon section — pokeball throw + color change (replays every scroll-in)
-    const bestSkill = document.getElementById('best-skill');
-    const pokeballThrow = document.getElementById('pokeball-throw');
-    const starBurstEl = document.getElementById('star-burst');
-    let pokeAnimRunning = false;
-    let pokeTimeouts = [];
-    function resetPokeAnim() {
-      pokeTimeouts.forEach(t => clearTimeout(t));
-      pokeTimeouts = [];
-      pokeAnimRunning = false;
-      pokeballThrow.className = 'pokeball-hero';
-      pokeballThrow.style.cssText = '';
-      starBurstEl.className = 'star-burst';
-      bestSkill.classList.remove('poke-active');
-      const title = bestSkill.querySelector('.poke-title');
-      if (title) {
-        title.style.background = 'linear-gradient(135deg, #f1f5f9 0%, #06b6d4 100%)';
-        title.style.webkitBackgroundClip = 'text';
-        title.style.backgroundClip = 'text';
-      }
-    }
-    function runPokeAnim() {
-      if (pokeAnimRunning) return;
-      pokeAnimRunning = true;
-      pokeballThrow.classList.add('thrown');
-      pokeTimeouts.push(setTimeout(() => {
-        pokeballThrow.classList.remove('thrown');
-        pokeballThrow.style.transform = 'translate(-50%, -50%) rotate(720deg) scale(1)';
-        pokeballThrow.style.opacity = '1';
-        pokeballThrow.classList.add('shake');
-      }, 1000));
-      pokeTimeouts.push(setTimeout(() => {
-        pokeballThrow.classList.remove('shake');
-        pokeballThrow.classList.add('caught');
-        starBurstEl.classList.add('active');
-        bestSkill.classList.add('poke-active');
-        const title = bestSkill.querySelector('.poke-title');
-        if (title) {
-          title.style.background = 'linear-gradient(135deg, #1a1a2e 0%, #dc2626 100%)';
-          title.style.webkitBackgroundClip = 'text';
-          title.style.backgroundClip = 'text';
-        }
-      }, 1500));
-      pokeTimeouts.push(setTimeout(() => {
-        pokeballThrow.style.transition = 'opacity 0.6s ease';
-        pokeballThrow.style.opacity = '0';
-      }, 2200));
-    }
-    if (bestSkill && pokeballThrow) {
-      const pokeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            resetPokeAnim();
-            requestAnimationFrame(() => runPokeAnim());
-          } else {
-            resetPokeAnim();
-          }
-        });
-      }, { threshold: 0.2 });
-      pokeObserver.observe(bestSkill);
-    }
-
-    // Game theme observers — toggle classes on scroll for each themed section
-    const themeMap = {
-      'about': 'mc-active',
-      'projects': 'pac-active',
-      'experience': 'zelda-active',
-      'skills': 'tetris-active',
-      'certifications': 'mario-active',
-      'leadership': 'ds-active',
-      'contact': 'ut-active'
-    };
-    const themeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        const cls = themeMap[id];
-        if (!cls) return;
-        if (entry.isIntersecting) {
-          entry.target.classList.add(cls);
-        } else {
-          entry.target.classList.remove(cls);
-        }
-      });
-    }, { threshold: 0.15 });
-    Object.keys(themeMap).forEach(id => {
-      const el = document.getElementById(id);
-      if (el) themeObserver.observe(el);
-    });
-
-    // Footer arcade theme
-    const footer = document.getElementById('site-footer');
-    if (footer) {
-      const footerObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          footer.classList.toggle('arcade-active', entry.isIntersecting);
-          const blink = footer.querySelector('.arcade-blink');
-          if (blink) blink.style.opacity = entry.isIntersecting ? '1' : '0';
-        });
-      }, { threshold: 0.3 });
-      footerObs.observe(footer);
-    }
-
-    // Show Undertale determination text when contact is active
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      const utObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const det = contactSection.querySelector('.ut-determination-text');
-          if (det) det.style.opacity = entry.isIntersecting ? '1' : '0';
-        });
-      }, { threshold: 0.3 });
-      utObs.observe(contactSection);
-    }
-
-    // Typed terminal — cybersecurity themed
-    const terminalOutput = document.getElementById('terminal-output');
-    if (terminalOutput) {
-      const lines = [
-        { prompt: true, text: 'whoami' },
-        { prompt: false, text: 'soliman — cybersecurity student @ university of akron', color: '#94a3b8' },
-        { prompt: true, text: 'nmap -sV localhost' },
-        { prompt: false, text: 'PORT    STATE  SERVICE', color: '#94a3b8' },
-        { prompt: false, text: '22/tcp  open   ssh (hardened)', color: '#4ade80' },
-        { prompt: false, text: '443/tcp open   https (TLS 1.3)', color: '#4ade80' },
-        { prompt: false, text: '8080/tcp closed — no unnecessary services', color: '#facc15' },
-        { prompt: true, text: 'sha256sum portfolio.html | head -c 16' },
-        { prompt: false, text: 'a7f3c2e1b9d04f6e', color: '#94a3b8' },
-        { prompt: true, text: './deploy.sh --secure' },
-        { prompt: false, text: '\u2713 Dependencies audited — 0 vulnerabilities', color: '#4ade80' },
-        { prompt: false, text: '\u2713 CSP headers configured', color: '#4ade80' },
-        { prompt: false, text: '\u2713 Portfolio deployed successfully', color: '#4ade80' },
-      ];
-      let lineIndex = 0;
-      function addLine() {
-        if (lineIndex >= lines.length) {
-          const cursor = document.createElement('p');
-          cursor.innerHTML = '<span style="color:#06b6d4">$</span> <span class="typed-cursor">_</span>';
-          terminalOutput.appendChild(cursor);
-          return;
-        }
-        const line = lines[lineIndex];
-        const p = document.createElement('p');
-        if (line.prompt) {
-          p.innerHTML = '<span style="color:#06b6d4">$</span> ';
-          terminalOutput.appendChild(p);
-          let charIndex = 0;
-          const typeChar = () => {
-            if (charIndex < line.text.length) {
-              p.innerHTML += line.text[charIndex];
-              charIndex++;
-              setTimeout(typeChar, 30 + Math.random() * 20);
-            } else { lineIndex++; setTimeout(addLine, 250); }
-          };
-          setTimeout(typeChar, 350);
-        } else {
-          p.style.color = line.color || '#94a3b8';
-          p.textContent = line.text;
-          terminalOutput.appendChild(p);
-          lineIndex++;
-          setTimeout(addLine, 100);
-        }
-      }
-      setTimeout(addLine, 900);
-    }
-
-    // Particles — fewer on mobile
-    const canvas = document.getElementById('particles');
-    if (canvas) {
-      const ctx = canvas.getContext('2d');
-      let w, h, particles = [];
-      function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
-      resize();
-      window.addEventListener('resize', resize);
-      const isMobile = window.innerWidth < 768;
-      const count = isMobile ? 20 : Math.min(60, Math.floor(window.innerWidth / 25));
-      const linkDist = isMobile ? 100 : 150;
-      for (let i = 0; i < count; i++) {
-        particles.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3, r: Math.random() * 1.5 + 0.5 });
-      }
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-        particles.forEach((p, i) => {
-          p.x += p.vx; p.y += p.vy;
-          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(6, 182, 212, 0.4)';
-          ctx.fill();
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = p.x - particles[j].x, dy = p.y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < linkDist) {
-              ctx.beginPath();
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(6, 182, 212, ${0.08 * (1 - dist / linkDist)})`;
-              ctx.stroke();
-            }
-          }
-        });
-        requestAnimationFrame(draw);
-      }
-      draw();
-    }
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
