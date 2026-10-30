@@ -1,543 +1,362 @@
-import { useEffect, useRef } from "react";
-import {
-  Activity,
-  ArrowUpRight,
-  BriefcaseBusiness,
-  Code2,
-  Download,
-  FileSearch,
-  GraduationCap,
-  Mail,
-  Network,
-  Radar,
-  ShieldCheck,
-  Terminal,
-  Trophy,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 
-import portraitUrl from "../assets/soliman.jpg";
-import resumeUrl from "../assets/Soliman_Alktaifan_Resume.pdf";
-
-const videoUrl =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4";
-
-const navItems = [
-  { label: "Cases", href: "#work" },
-  { label: "Field Work", href: "#experience" },
-  { label: "Toolkit", href: "#skills" },
-  { label: "Contact", href: "#contact" },
-];
-
-const stats = [
-  { label: "GPA", value: "4.0" },
-  { label: "Capture Ohio CTF", value: "7 / 68" },
-  { label: "Midwest CCDC", value: "5th" },
-  { label: "TryHackMe rooms", value: "45+" },
-];
-
-const projects = [
-  {
-    icon: Radar,
-    label: "SOC-01",
-    title: "TryHackMe SOC Simulator",
-    meta: "Phishing triage, SIEM analysis, incident reporting",
-    copy: "Triaged alert queues, separated true and false positive phishing cases, queried Splunk dashboards, and wrote case reports with IOCs and remediation notes.",
-    stack: ["Splunk", "MITRE ATT&CK", "Phishing", "Reports"],
-  },
-  {
-    icon: FileSearch,
-    label: "COB-02",
-    title: "Zippy AI Information Kiosk",
-    meta: "Python, QML, campus document retrieval",
-    copy: "Contributed to an on premise assistant for 2,000+ College of Business students, improving search and retrieval across policies, forms, schedules, and support resources.",
-    stack: ["Python", "QML", "Ollama", "Docs"],
-    href: "https://github.com/dylondark/cob-zippy-ai",
-  },
-  {
-    icon: ShieldCheck,
-    label: "LAB-03",
-    title: "SOC Detection and Response Lab",
-    meta: "Splunk, Sysmon, Windows and Linux telemetry",
-    copy: "Building a hands on lab for failed logins, suspicious PowerShell, scheduled task persistence, privileged account changes, dashboards, and analyst notes.",
-    stack: ["Splunk", "Sysmon", "SPL", "Python"],
-  },
-  {
-    icon: Terminal,
-    label: "APP-04",
-    title: "HackLab Coach",
-    meta: "Next.js, TypeScript, React, Groq API",
-    copy: "Built a cybersecurity training platform with streamed coaching, adaptive challenges, rubric based grading, MITRE mapping, and skill analytics.",
-    stack: ["Next.js", "React", "Groq", "Recharts"],
-    href: "https://github.com/iiCiel/hacklab-coach",
-  },
-  {
-    icon: Activity,
-    label: "MOB-05",
-    title: "Daily Mood App",
-    meta: "React Native, Expo, SQLite",
-    copy: "Built a local first productivity app with mood tracking, habits, pomodoro sessions, tasks, notifications, biometric lock, custom themes, and Android builds.",
-    stack: ["Expo", "SQLite", "Notifications", "EAS"],
-    href: "https://github.com/iiCiel/Daily-Mood-App",
-  },
-  {
-    icon: Network,
-    label: "NET-06",
-    title: "Cisco Network Labs",
-    meta: "Packet Tracer, VLANs, OSPF, DHCP",
-    copy: "Configured routed and switched topologies covering inter VLAN routing, OSPF, DHCPv4 and DHCPv6, STP, EtherChannel, ACLs, and wildcard masks.",
-    stack: ["Cisco IOS", "OSPF", "VLANs", "ACLs"],
-  },
-];
-
-const experience = [
-  {
-    role: "Software Development Student Assistant",
-    place: "University of Akron, College of Business Computer Labs",
-    date: "Aug 2025 - Present",
-    icon: BriefcaseBusiness,
-    points: [
-      "Resolve 45+ support tickets across 3 labs within 24 hour SLA.",
-      "Manage endpoint compliance, health checks, and deployment workflows in Microsoft Intune.",
-      "Standardized GitHub workflow with PR templates, branch protection, and commit conventions.",
-    ],
-  },
-  {
-    role: "Resident Assistant",
-    place: "University of Akron Campus Housing",
-    date: "Aug 2025 - Present",
-    icon: ShieldCheck,
-    points: [
-      "Primary safety and conduct contact for 40+ residents.",
-      "Draft incident reports and coordinate with professional staff on safety concerns.",
-      "Run programming on personal safety, digital hygiene, and community standards.",
-    ],
-  },
-  {
-    role: "IT Technician",
-    place: "Construction and Development LTD",
-    date: "Jun 2022 - Aug 2023",
-    icon: Terminal,
-    points: [
-      "Managed support for a 15 person office, including provisioning, backups, and helpdesk requests.",
-      "Completed a server migration with zero data loss and under 24 hours downtime.",
-      "Supported SAMA audit preparation by organizing sensitive financial documents.",
-    ],
-  },
-];
-
-const skillGroups = [
-  {
-    title: "Security Operations",
-    icon: ShieldCheck,
-    items: ["Splunk", "Wireshark", "Nmap", "Nessus", "Burp Suite", "Snort", "CyberChef"],
-  },
-  {
-    title: "Networks and Systems",
-    icon: Network,
-    items: ["Cisco IOS", "Linux", "AWS", "Docker basics", "Active Directory", "Microsoft Intune"],
-  },
-  {
-    title: "Software",
-    icon: Code2,
-    items: ["Python", "TypeScript", "React", "Next.js", "React Native", "SQL", "Bash"],
-  },
-  {
-    title: "Governance",
-    icon: GraduationCap,
-    items: ["MITRE ATT&CK", "NIST 800-53", "ISO 27001", "SOC 2", "GDPR", "HIPAA"],
-  },
-];
-
-const credentials = [
-  "Founding President, HTCIA Student Chapter",
-  "OCRI Capture Ohio 2026 participation badge",
-  "Google Cybersecurity Professional Certificate",
-  "Cisco Networking Essentials",
-  "Cisco IT Essentials",
-  "Jira Service Management Fundamentals",
-];
+import portrait from "../assets/img/soliman.webp";
+import { certs, contact, experience, facts, labs, record, skills } from "./content";
+import { featured, projects } from "./projects";
+import type { Project, Shot } from "./content";
 
 export default function App() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const heroRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const hero = heroRef.current;
-
-    if (!video || !hero || !("IntersectionObserver" in window)) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      },
-      { threshold: 0.08 },
-    );
-
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <SiteBackdrop videoRef={videoRef} />
-      <Navigation />
-
-      <section ref={heroRef} id="top" className="relative z-10 min-h-screen overflow-hidden">
-        <div className="mx-auto grid min-h-screen max-w-7xl items-end gap-10 px-5 pb-8 pt-28 sm:px-8 lg:grid-cols-[1fr_22rem] lg:pb-12">
-          <div className="max-w-6xl">
-            <p className="animate-fade-rise liquid-glass mb-8 inline-flex rounded-full px-5 py-2 text-sm text-muted-foreground">
-              Cybersecurity B.S. / University of Akron / Class of 2027
-            </p>
-            <h1
-              className="animate-fade-rise max-w-6xl text-5xl font-normal leading-[0.92] tracking-[-2.46px] text-foreground sm:text-7xl md:text-8xl lg:text-[7.5rem]"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
-            >
-              I turn noisy systems into{" "}
-              <em className="not-italic text-muted-foreground">clear evidence.</em>
-            </h1>
-            <p className="animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              SOC practice, packet analysis, endpoint support, campus software, and
-              competition work shaped into one focused cybersecurity portfolio.
-            </p>
-
-            <div className="animate-fade-rise-delay-2 mt-10 flex flex-col gap-3 sm:flex-row">
-              <IconLink href="#work" icon={FileSearch}>
-                Review Case Files
-              </IconLink>
-              <IconLink href="mailto:solimansultan59@gmail.com" icon={Mail}>
-                Start a Conversation
-              </IconLink>
-            </div>
-          </div>
-
-          <aside className="animate-fade-rise-delay-2 liquid-glass hero-dossier rounded-[2rem] p-4">
-            <div className="relative overflow-hidden rounded-[1.4rem]">
-              <img
-                src={portraitUrl}
-                alt="Portrait of Soliman Alktaifan"
-                className="aspect-[4/5] w-full object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                <p className="text-sm text-muted-foreground">Analyst profile</p>
-                <p className="text-xl text-foreground">Soliman Alktaifan</p>
-              </div>
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-2">
-              {stats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl border border-border/70 p-3">
-                  <p
-                    className="text-3xl leading-none text-foreground"
-                    style={{ fontFamily: "'Instrument Serif', serif" }}
-                  >
-                    {stat.value}
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </aside>
-        </div>
-
-        <div className="relative z-10 border-y border-border/70 bg-black/25 py-3">
-          <div className="marquee-track text-sm uppercase tracking-[0.28em] text-muted-foreground">
-            <span>Wireshark</span>
-            <span>Splunk</span>
-            <span>Network Forensics</span>
-            <span>Incident Reports</span>
-            <span>Linux</span>
-            <span>Active Directory</span>
-            <span>MITRE ATT&CK</span>
-            <span>Python</span>
-            <span>Wireshark</span>
-            <span>Splunk</span>
-            <span>Network Forensics</span>
-            <span>Incident Reports</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" className="site-section">
-        <SectionHeader
-          eyebrow="Selected case files"
-          title="Not portfolio filler. Work with evidence, tooling, and users behind it."
-        />
-        <div className="case-grid">
-          {projects.map((project, index) => {
-            const Icon = project.icon;
-            return (
-              <article
-                key={project.title}
-                className={`case-file glass-panel rounded-[2rem] p-5 sm:p-6 ${
-                  index === 0 || index === 2 ? "lg:col-span-2" : ""
-                }`}
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
-                    {project.label}
-                  </span>
-                  <Icon className="h-5 w-5 text-foreground" aria-hidden="true" />
-                </div>
-                <div className="mt-12">
-                  <p className="text-sm text-muted-foreground">{project.meta}</p>
-                  <h3
-                    className="mt-3 text-4xl font-normal leading-none text-foreground sm:text-5xl"
-                    style={{ fontFamily: "'Instrument Serif', serif" }}
-                  >
-                    {project.title}
-                  </h3>
-                  <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">
-                    {project.copy}
-                  </p>
-                </div>
-                <div className="mt-8 flex flex-wrap items-center gap-2">
-                  {project.stack.map((item) => (
-                    <span key={item} className="skill-chip">
-                      {item}
-                    </span>
-                  ))}
-                  {project.href ? (
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="ml-auto inline-flex items-center gap-1 text-sm text-foreground"
-                    >
-                      Open <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                    </a>
-                  ) : null}
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section id="experience" className="site-section">
-        <SectionHeader
-          eyebrow="Field work"
-          title="Support, housing leadership, and infrastructure work under real constraints."
-        />
-        <div className="timeline">
-          {experience.map((item) => {
-            const Icon = item.icon;
-            return (
-              <article key={item.role} className="timeline-item">
-                <div className="timeline-icon">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div className="glass-panel rounded-[1.75rem] p-5 sm:p-7">
-                  <div className="grid gap-4 md:grid-cols-[0.7fr_1fr]">
-                    <div>
-                      <p className="text-sm text-muted-foreground">{item.date}</p>
-                      <h3
-                        className="mt-3 text-3xl font-normal leading-none text-foreground sm:text-5xl"
-                        style={{ fontFamily: "'Instrument Serif', serif" }}
-                      >
-                        {item.role}
-                      </h3>
-                      <p className="mt-3 text-sm text-muted-foreground">{item.place}</p>
-                    </div>
-                    <ul className="grid gap-3 text-muted-foreground">
-                      {item.points.map((point) => (
-                        <li key={point} className="flex gap-3 leading-relaxed">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section id="skills" className="site-section">
-        <SectionHeader
-          eyebrow="Toolkit"
-          title="A practical stack for SOC work, labs, support, and software builds."
-        />
-        <div className="grid gap-4 md:grid-cols-2">
-          {skillGroups.map((group) => {
-            const Icon = group.icon;
-            return (
-              <article key={group.title} className="glass-panel skill-panel rounded-[2rem] p-6">
-                <div className="flex items-center justify-between">
-                  <h3
-                    className="text-4xl font-normal text-foreground"
-                    style={{ fontFamily: "'Instrument Serif', serif" }}
-                  >
-                    {group.title}
-                  </h3>
-                  <Icon className="h-6 w-6 text-foreground" aria-hidden="true" />
-                </div>
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span key={item} className="skill-chip">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="site-section">
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <SectionHeader
-              eyebrow="Signal"
-              title="Competition, certification, and chapter work."
-            />
-          </div>
-          <div className="signal-wall">
-            {credentials.map((item, index) => (
-              <div key={item} className="signal-row">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <p>{item}</p>
-              </div>
+    <>
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+      <Masthead />
+      <main id="main">
+        <TitleBlock />
+        <Featured project={featured} />
+        <Section id="projects" title="More projects">
+          <div className="entries">
+            {projects.map((p) => (
+              <ProjectEntry key={p.id} project={p} />
             ))}
           </div>
-        </div>
-      </section>
-
-      <section id="contact" className="site-section pb-10">
-        <div className="liquid-glass contact-panel rounded-[2.5rem] p-7 text-center sm:p-12">
-          <p className="text-sm uppercase tracking-[0.28em] text-muted-foreground">Contact</p>
-          <h2
-            className="mx-auto mt-5 max-w-5xl text-5xl font-normal leading-none text-foreground sm:text-7xl md:text-8xl"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
-          >
-            Available for cybersecurity, IT, and software internships.
-          </h2>
-          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-            <IconLink href="mailto:solimansultan59@gmail.com" icon={Mail}>
-              Email
-            </IconLink>
-            <IconLink
-              href="https://www.linkedin.com/in/soliman-alktaifan"
-              icon={BriefcaseBusiness}
-              external
-            >
-              LinkedIn
-            </IconLink>
-            <IconLink href="https://github.com/iiCiel" icon={Code2} external>
-              GitHub
-            </IconLink>
+        </Section>
+        <Section id="labs" title="Labs and smaller builds">
+          <LabsTable />
+        </Section>
+        <Section id="experience" title="Experience">
+          <ol className="log">
+            {experience.map((job) => (
+              <li key={job.role + job.org} className="log-row">
+                <p className="log-when">{job.when}</p>
+                <div>
+                  <h3 className="log-role">{job.role}</h3>
+                  <p className="log-org">
+                    {job.org} <span className="muted">· {job.place}</span>
+                  </p>
+                  <ul className="ticks">
+                    {job.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Section>
+        <Section id="record" title="Competitions and leadership">
+          <ul className="record">
+            {record.map((r) => (
+              <li key={r.title}>
+                <p className="record-result">{r.result}</p>
+                <h3 className="record-title">
+                  {r.title} <span className="mono muted">{r.when}</span>
+                </h3>
+                <p className="record-detail">{r.detail}</p>
+              </li>
+            ))}
+          </ul>
+        </Section>
+        <Section id="skills" title="Skills and certifications">
+          <dl className="skills">
+            {skills.map((s) => (
+              <div key={s.group} className="skills-row">
+                <dt>{s.group}</dt>
+                <dd>{s.items}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="certs">
+            <div>
+              <h3 className="small-head">Earned</h3>
+              <ul className="ticks">
+                {certs.done.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="small-head">Working on</h3>
+              <ul className="ticks">
+                {certs.next.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </Section>
+        <Contact />
+      </main>
+      <footer className="footer">
+        <p>
+          Built by Soliman Alktaifan with React and Vite. Every screenshot is from the real project.
+        </p>
+        <p className="mono">Updated October 2026 · TLP:CLEAR</p>
+      </footer>
+    </>
   );
 }
 
-function Navigation() {
+function Masthead() {
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 px-3 py-3 sm:px-5">
-      <div className="liquid-glass mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 py-3 sm:px-5">
-        <a
-          href="#top"
-          className="text-3xl tracking-tight text-foreground"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
-          aria-label="Soliman Alktaifan home"
-        >
-          Soliman
+    <header className="masthead">
+      <div className="masthead-inner">
+        <a href="#main" className="masthead-id" aria-label="Soliman Alktaifan, top of page">
+          <span className="tlp" title="Traffic Light Protocol CLEAR: fine to share publicly">
+            TLP:CLEAR
+          </span>
+          <span className="masthead-name">Soliman Alktaifan</span>
         </a>
+        <nav aria-label="Sections">
+          <ul className="nav">
+            <li>
+              <a href="#cyber-office">Work</a>
+            </li>
+            <li>
+              <a href="#experience">Experience</a>
+            </li>
+            <li className="nav-optional">
+              <a href="#skills">Skills</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
+}
 
-        <div className="hidden items-center gap-7 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
+function TitleBlock() {
+  const cover = featured.shots[0];
+  return (
+    <section className="title-block" aria-labelledby="name">
+      <div className="title-copy">
+        <h1 id="name" className="display">
+          Soliman Alktaifan
+        </h1>
+        <p className="lede">
+          I study cybersecurity at the University of Akron. I work through incidents,{" "}
+          <mark className="marker">write them up the way a SOC would</mark>, and build games and tools
+          that let other people practice the same work.
+        </p>
+        <div className="id-card">
+          <img
+            src={portrait}
+            alt="Soliman Alktaifan"
+            width={112}
+            height={112}
+            className="id-photo"
+            fetchPriority="high"
+          />
+          <dl className="facts">
+            {facts.map((f) => (
+              <div key={f.term}>
+                <dt>{f.term}</dt>
+                <dd>{f.detail}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-
-        <a
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03] sm:px-5"
-          href={resumeUrl}
-          download
-        >
-          <Download className="h-4 w-4" aria-hidden="true" />
-          Resume
+        <div className="actions">
+          <a className="btn btn-primary" href={`mailto:${contact.email}`}>
+            <Mail aria-hidden="true" size={18} strokeWidth={2} />
+            Email me
+          </a>
+          <a className="btn" href={contact.github}>
+            GitHub
+          </a>
+          <a className="btn" href={contact.linkedin}>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <figure className="title-figure">
+        <a href={featured.links[0].href} className="shot-link" aria-label="Play Cyber Office in your browser">
+          <ShotImg shot={cover} eager />
         </a>
-      </div>
-    </nav>
+        <figcaption>
+          <span>
+            Now building: <a href="#cyber-office">Cyber Office</a>, a browser game where you work a week as a
+            junior security analyst.
+          </span>
+        </figcaption>
+      </figure>
+    </section>
   );
 }
 
-function SiteBackdrop({ videoRef }: { videoRef: React.RefObject<HTMLVideoElement | null> }) {
+function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
-    <div className="site-backdrop fixed inset-0 z-0 overflow-hidden bg-background" aria-hidden="true">
-      <video
-        ref={videoRef}
-        className="site-backdrop-video h-full w-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-      >
-        <source src={videoUrl} type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-black/58" />
-      <div className="backdrop-grid absolute inset-0" />
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
-    </div>
-  );
-}
-
-function IconLink({
-  children,
-  href,
-  icon: Icon,
-  external = false,
-}: {
-  children: import("react").ReactNode;
-  href: string;
-  icon: LucideIcon;
-  external?: boolean;
-}) {
-  return (
-    <a
-      className="liquid-glass inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-foreground transition-transform hover:scale-[1.03]"
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noreferrer" : undefined}
-    >
-      <Icon className="h-4 w-4" aria-hidden="true" />
-      {children}
-    </a>
-  );
-}
-
-function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
-  return (
-    <div className="mb-12 grid gap-5 md:grid-cols-[0.32fr_1fr]">
-      <div className="flex items-center gap-3 text-sm uppercase tracking-[0.24em] text-muted-foreground">
-        <Trophy className="h-4 w-4" aria-hidden="true" />
-        {eyebrow}
-      </div>
-      <h2
-        className="max-w-5xl text-5xl font-normal leading-none text-foreground sm:text-7xl"
-        style={{ fontFamily: "'Instrument Serif', serif" }}
-      >
+    <section id={id} className="section" aria-labelledby={`${id}-h`}>
+      <h2 id={`${id}-h`} className="section-head">
         {title}
       </h2>
+      <div className="section-body">{children}</div>
+    </section>
+  );
+}
+
+function Featured({ project }: { project: Project }) {
+  const [, terminal, siem] = project.shots;
+  return (
+    <section id={project.id} className="section featured" aria-labelledby="featured-h">
+      <h2 id="featured-h" className="section-head">
+        {project.name}
+      </h2>
+      <div className="section-body">
+        <p className="featured-summary">{project.summary}</p>
+        <div className="featured-shots">
+          {[terminal, siem].map((s) => (
+            <figure key={s.src}>
+              <ShotImg shot={s} />
+              <figcaption>{s.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="featured-text">
+          <div>
+            <h3 className="small-head">What I built</h3>
+            <ul className="ticks">
+              {project.built.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="small-head">Stack</h3>
+            <p className="stack">{project.stack.join(" · ")}</p>
+            <ProjectLinks project={project} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectEntry({ project }: { project: Project }) {
+  const shot = project.shots[0];
+  return (
+    <article className="entry" aria-labelledby={`${project.id}-h`}>
+      <div className="entry-text">
+        <h3 id={`${project.id}-h`} className="entry-name">
+          {project.name}
+        </h3>
+        <p className="entry-summary">{project.summary}</p>
+        <ul className="ticks">
+          {project.built.map((b) => (
+            <li key={b}>{b}</li>
+          ))}
+        </ul>
+        <p className="stack">{project.stack.join(" · ")}</p>
+        <ProjectLinks project={project} />
+      </div>
+      <figure className="entry-figure">
+        <ShotImg shot={shot} />
+        <figcaption>{shot.caption}</figcaption>
+      </figure>
+    </article>
+  );
+}
+
+function ProjectLinks({ project }: { project: Project }) {
+  return (
+    <p className="links">
+      {project.links.map((l) => (
+        <a key={l.href} href={l.href} className="link-out">
+          {l.label}
+          <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2} />
+        </a>
+      ))}
+      {project.note && <span className="note">{project.note}</span>}
+    </p>
+  );
+}
+
+function ShotImg({ shot, eager = false }: { shot: Shot; eager?: boolean }) {
+  return (
+    <img
+      src={shot.src}
+      srcSet={`${shot.srcSm} 720w, ${shot.src} ${shot.w}w`}
+      sizes={eager ? "(min-width: 64rem) 52vw, 100vw" : "(min-width: 64rem) 40vw, (min-width: 48rem) 55vw, 100vw"}
+      alt={shot.alt}
+      width={shot.w}
+      height={shot.h}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      fetchPriority={eager ? "high" : undefined}
+      className="shot"
+    />
+  );
+}
+
+function LabsTable() {
+  return (
+    <div className="table-wrap">
+      <table className="labs">
+        <thead>
+          <tr>
+            <th scope="col">Project</th>
+            <th scope="col">What it is</th>
+            <th scope="col">Tools</th>
+          </tr>
+        </thead>
+        <tbody>
+          {labs.map((l) => (
+            <tr key={l.name}>
+              <th scope="row">
+                <span className="lab-name">{l.name}</span>
+                <span className="mono muted lab-when">{l.when}</span>
+                {l.link && (
+                  <a href={l.link.href} className="link-out lab-link">
+                    {l.link.label}
+                    <ArrowUpRight aria-hidden="true" size={14} strokeWidth={2} />
+                  </a>
+                )}
+              </th>
+              <td>{l.what}</td>
+              <td className="mono lab-tools">{l.tools}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className="section contact" aria-labelledby="contact-h">
+      <h2 id="contact-h" className="section-head">
+        Contact
+      </h2>
+      <div className="section-body">
+        <p className="contact-lede">
+          Hiring for a security internship or co-op in 2027? Email me. If you want my resume, ask and I'll
+          send the current PDF.
+        </p>
+        <p>
+          <a className="contact-email" href={`mailto:${contact.email}`}>
+            {contact.email}
+          </a>
+        </p>
+        <ul className="contact-links">
+          <li>
+            <a href={contact.linkedin} className="link-out">
+              {contact.linkedinLabel}
+              <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2} />
+            </a>
+          </li>
+          <li>
+            <a href={contact.github} className="link-out">
+              {contact.githubLabel}
+              <ArrowUpRight aria-hidden="true" size={16} strokeWidth={2} />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
   );
 }
